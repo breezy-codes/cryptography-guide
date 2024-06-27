@@ -57,10 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ciphers/hill-cipher';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modular Arithmetic" href="../number-theory/modular-arithmetic.html" />
     <link rel="prev" title="The Ceaser Cipher" href="ceaser-cipher.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,18 +184,6 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ceaser-cipher.html">The Ceaser Cipher</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>The Hill Cipher</strong></a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../number-theory/modular-arithmetic.html">Modular Arithmetic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../number-theory/number-theory-basics.html"><strong>Number Theory Basics</strong></a></li>
-
-
-
-
-
-
-
 </ul>
 
     </div>
@@ -390,10 +379,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-algorithm"><strong>1. Hill Cipher Algorithm</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-hill-cipher"><strong>2. Examples of the Hill Cipher</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-is-an-example-of-the-hill-cipher-in-action">The following is an example of the Hill cipher in action:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-hill-cipher-example">Explanation of the Hill Cipher Example</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-invertible-key-matrix"><strong>3. Generating Invertible Key Matrix</strong></a></li>
@@ -413,7 +404,97 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="the-hill-cipher">
 <h1><strong>The Hill Cipher</strong><a class="headerlink" href="#the-hill-cipher" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
-<p>The Hill cipher is a polygraphic substitution cipher based on linear algebra. It was invented by Lester S. Hill in 1929. The cipher uses an <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">n</span></code> matrix to encrypt blocks of <code class="docutils literal notranslate"><span class="pre">n</span></code> letters at a time. The matrix must be invertible, and the determinant of the matrix must be coprime with the length of the alphabet. The matrix is multiplied by a vector of the plaintext to get the ciphertext. The inverse of the matrix is used to decrypt the ciphertext.</p>
+<p>The Hill cipher is a polygraphic substitution cipher based on linear algebra. It was invented by Lester S. Hill in 1929. The cipher uses an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix to encrypt blocks of <span class="math notranslate nohighlight">\(n\)</span> letters at a time. The matrix must be invertible, and the determinant of the matrix must be coprime with the length of the alphabet. The matrix is multiplied by a vector of the plaintext to get the ciphertext. The inverse of the matrix is used to decrypt the ciphertext.</p>
+<p>Let’s break down the process step by step:</p>
+<ol class="arabic">
+<li><p><strong>Transformation of Letters to Numbers</strong>:</p>
+<ul class="simple">
+<li><p>Each letter in the alphabet is assigned a number:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    A &amp; = 0, \\
+    B &amp; = 1, \\
+    \vdots \\
+    Z &amp; = 25.
+    \end{aligned}
+    \end{split}\]</div>
+</li>
+<li><p><strong>Encryption Process</strong>:</p>
+<ul class="simple">
+<li><p>Choose an <span class="math notranslate nohighlight">\(n \times n\)</span> matrix <span class="math notranslate nohighlight">\(K\)</span> as the key for encryption. This matrix must be invertible modulo 26.</p></li>
+<li><p>Divide the plaintext into vectors of size <span class="math notranslate nohighlight">\(n\)</span>. For example, for a 2x2 matrix and plaintext “HELP”:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\text{Plaintext: } \text{HELP} \rightarrow \begin{pmatrix} H &amp; E \\ L &amp; P \end{pmatrix} = \begin{pmatrix} 7 &amp; 4 \\ 11 &amp; 15 \end{pmatrix}\end{split}\]</div>
+<ul class="simple">
+<li><p>Multiply each vector by the matrix <span class="math notranslate nohighlight">\(K\)</span> modulo 26 to get the ciphertext vector:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\text{Ciphertext vector: } C = K \cdot P \mod 26\]</div>
+<ul class="simple">
+<li><p>For example, if <span class="math notranslate nohighlight">\(K = \begin{pmatrix} 3 &amp; 3 \\ 2 &amp; 5 \end{pmatrix}\)</span> and <span class="math notranslate nohighlight">\(P = \begin{pmatrix} 7 \\ 4 \end{pmatrix}\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}C = \begin{pmatrix} 3 &amp; 3 \\ 2 &amp; 5 \end{pmatrix} \cdot \begin{pmatrix} 7 \\ 4 \end{pmatrix} \mod 26 = \begin{pmatrix} 21 \\ 6 \end{pmatrix} \mod 26 = \begin{pmatrix} 21 \\ 6 \end{pmatrix}\end{split}\]</div>
+<ul class="simple">
+<li><p>The ciphertext corresponds to the letters <span class="math notranslate nohighlight">\(V\)</span> and <span class="math notranslate nohighlight">\(G\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Decryption Process</strong>:</p>
+<ul class="simple">
+<li><p>To decrypt, use the inverse of the matrix <span class="math notranslate nohighlight">\(K\)</span>, denoted as <span class="math notranslate nohighlight">\(K^{-1}\)</span>.</p></li>
+<li><p>Multiply the ciphertext vector by the inverse matrix <span class="math notranslate nohighlight">\(K^{-1}\)</span> modulo 26 to get the plaintext vector:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\text{Plaintext vector: } P = K^{-1} \cdot C \mod 26\]</div>
+<ul class="simple">
+<li><p>For example, if <span class="math notranslate nohighlight">\(K^{-1} = \begin{pmatrix} 15 &amp; 17 \\ 20 &amp; 9 \end{pmatrix}\)</span> and <span class="math notranslate nohighlight">\(C = \begin{pmatrix} 21 \\ 6 \end{pmatrix}\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}P = \begin{pmatrix} 15 &amp; 17 \\ 20 &amp; 9 \end{pmatrix} \cdot \begin{pmatrix} 21 \\ 6 \end{pmatrix} \mod 26 = \begin{pmatrix} 7 \\ 4 \end{pmatrix} \mod 26 = \begin{pmatrix} 7 \\ 4 \end{pmatrix}\end{split}\]</div>
+<ul class="simple">
+<li><p>The plaintext corresponds to the letters <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(E\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Note</strong>: The matrix <span class="math notranslate nohighlight">\(K\)</span> must be carefully chosen so that its determinant is coprime with 26 to ensure it has an inverse modulo 26.</p>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>Plaintext: “HELP”</p></li>
+<li><p>Key matrix <span class="math notranslate nohighlight">\(K = \begin{pmatrix} 3 &amp; 3 \\ 2 &amp; 5 \end{pmatrix}\)</span></p></li>
+<li><p>Encryption:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    P_1 &amp;= \begin{pmatrix} H &amp; E \end{pmatrix} = \begin{pmatrix} 7 &amp; 4 \end{pmatrix} \\
+    \end{aligned}
+    \end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    C_1 &amp;= \begin{pmatrix} 3 &amp; 3 \\ 2 &amp; 5 \end{pmatrix} \cdot \begin{pmatrix} 7 \\ 4 \end{pmatrix} \mod 26 = \begin{pmatrix} 21 \\ 6 \end{pmatrix} = \text{VG}
+    \end{aligned}
+    \end{split}\]</div>
+</li>
+<li><p>Decryption:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    C_1 &amp;= \begin{pmatrix} V &amp; G \end{pmatrix} = \begin{pmatrix} 21 &amp; 6 \end{pmatrix} \\
+    \end{aligned}
+    \end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    P_1 &amp;= \begin{pmatrix} 15 &amp; 17 \\ 20 &amp; 9 \end{pmatrix} \cdot \begin{pmatrix} 21 \\ 6 \end{pmatrix} \mod 26 = \begin{pmatrix} 7 \\ 4 \end{pmatrix} = \text{HE}
+    \end{aligned}
+    \end{split}\]</div>
+</li>
+</ul>
+</section>
 <section id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -439,18 +520,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">faker</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">random</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">faker</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
 </pre></div>
 </div>
 </div>
@@ -524,6 +593,108 @@ The decrypted message is: HELLOX
 </div>
 </div>
 </div>
+</section>
+<section id="explanation-of-the-hill-cipher-example">
+<h3>Explanation of the Hill Cipher Example<a class="headerlink" href="#explanation-of-the-hill-cipher-example" title="Link to this heading">#</a></h3>
+<p>Given the key matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+K = \begin{pmatrix}
+6 &amp; 24 &amp; 1 \\
+13 &amp; 16 &amp; 10 \\
+20 &amp; 17 &amp; 15
+\end{pmatrix}
+\end{split}\]</div>
+<p>and the message “HELLO”:</p>
+<ol class="arabic">
+<li><p><strong>Transformation of Letters to Numbers</strong>:</p>
+<ul class="simple">
+<li><p>The message “HELLO” is padded to “HELLOX” to fit the matrix size.</p></li>
+<li><p>Convert letters to numbers:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    \text{H} = 7, \ \text{E} = 4, \ \text{L} = 11, \ \text{L} = 11, \ \text{O} = 14, \ \text{X} = 23
+    \]</div>
+</li>
+<li><p><strong>Forming the Plaintext Vector</strong>:</p>
+<ul class="simple">
+<li><p>Group the numbers into vectors of size 3 (matching the matrix size):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    P = \begin{pmatrix}
+    7 &amp; 4 &amp; 11 \\
+    11 &amp; 14 &amp; 23
+    \end{pmatrix}
+    \end{split}\]</div>
+</li>
+<li><p><strong>Encryption Process</strong>:</p>
+<ul class="simple">
+<li><p>Multiply each vector by the key matrix <span class="math notranslate nohighlight">\(K\)</span> modulo 26:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[C = K \cdot P \mod 26\]</div>
+<ul>
+<li><p>For the first vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 7 \\ 4 \\ 11 \end{pmatrix}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+        \begin{pmatrix}
+        6 &amp; 24 &amp; 1 \\
+        13 &amp; 16 &amp; 10 \\
+        20 &amp; 17 &amp; 15
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+        7 \\
+        4 \\
+        11
+        \end{pmatrix}
+        \mod 26 =
+        \begin{pmatrix}
+        15 \\
+        25 \\
+        17
+        \end{pmatrix}
+        \end{split}\]</div>
+</li>
+<li><p>Repeat for the second vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 11 \\ 14 \\ 23 \end{pmatrix}\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{pmatrix}
+    6 &amp; 24 &amp; 1 \\
+    13 &amp; 16 &amp; 10 \\
+    20 &amp; 17 &amp; 15
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+    11 \\
+    14 \\
+    23
+    \end{pmatrix}
+    \mod 26 =
+    \begin{pmatrix}
+    17 \\
+    16 \\
+    14
+    \end{pmatrix}
+    \end{split}\]</div>
+<ul class="simple">
+<li><p>Combine results to get the ciphertext:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    \text{Ciphertext: } \text{IZRQRO}
+    \]</div>
+</li>
+<li><p><strong>Decryption Process</strong>:</p>
+<ul class="simple">
+<li><p>Use the inverse of the key matrix <span class="math notranslate nohighlight">\(K^{-1}\)</span> to decrypt. Multiply each ciphertext vector by <span class="math notranslate nohighlight">\(K^{-1}\)</span> modulo 26 to retrieve the plaintext vectors.</p></li>
+</ul>
+</li>
+</ol>
+<p>So, the message “HELLO” is encrypted as “IZRQRO” using the Hill cipher with the given key matrix.</p>
 <p>Here is the same matrix, this time with the plaintext <code class="docutils literal notranslate"><span class="pre">Why</span> <span class="pre">hello</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">my</span> <span class="pre">message</span> <span class="pre">to</span> <span class="pre">you</span></code>, you’ll notice the plain text returned is <code class="docutils literal notranslate"><span class="pre">WHYHELLOTHISISMYMESSAGETOYOUX</span></code>. The spaces are removed and the text is converted to uppercase, as well as the X added to the end to make the length a multiple of 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -761,15 +932,6 @@ Wall time: 16.4 s
         <p class="prev-next-title">The Ceaser Cipher</p>
       </div>
     </a>
-    <a class="right-next"
-       href="../number-theory/modular-arithmetic.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Modular Arithmetic</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -786,10 +948,12 @@ Wall time: 16.4 s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-algorithm"><strong>1. Hill Cipher Algorithm</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-hill-cipher"><strong>2. Examples of the Hill Cipher</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-is-an-example-of-the-hill-cipher-in-action">The following is an example of the Hill cipher in action:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-hill-cipher-example">Explanation of the Hill Cipher Example</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-invertible-key-matrix"><strong>3. Generating Invertible Key Matrix</strong></a></li>

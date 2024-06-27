@@ -9,8 +9,8 @@ parts:
     chapters:
       - file: ciphers/ceaser-cipher
       - file: ciphers/hill-cipher
-  - caption: Number Theory
-    numbered: false
-    chapters:
-      - file: number-theory/modular-arithmetic
-      - file: number-theory/number-theory-basics
+#  - caption: Number Theory
+#    numbered: false
+#    chapters:
+ #     - file: number-theory/modular-arithmetic
+ #     - file: number-theory/number-theory-basics
