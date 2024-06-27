@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -380,17 +381,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-algorithm"><strong>1. Ceaser Cipher Algorithm</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-example"><strong>2. Ceaser Cipher Example</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-encryption-and-decryption-of-a-message">Example 1: Encryption and Decryption of a Message</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-shift">Explanation of the Shift</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-encryption-and-decryption-of-a-message">Example 2: Encryption and Decryption of a Message</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Explanation of the Shift</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-encryption-and-decryption-of-a-message">Example 1: Encryption and Decryption of a Message</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-encryption-and-decryption-of-a-message">Example 2: Encryption and Decryption of a Message</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-attack-on-the-cipher">Brute Force Attack on the Cipher</a></li>
 </ul>
 </li>
@@ -470,14 +464,6 @@ E(x) &amp; = (x + k) \mod 26 \\
 D(y) &amp; = (y - k) \mod 26
 \end{aligned}
 \end{split}\]</div>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="##1.-ceaser-cipher-algorithm"><span class="xref myst">1. Ceaser Cipher Algorithm</span></a></p></li>
-<li><p><a class="reference internal" href="##2.-ceaser-cipher-example"><span class="xref myst">2. Ceaser Cipher Example</span></a></p></li>
-<li><p><a class="reference internal" href="##3.-examples-with-longer-messages"><span class="xref myst">3. Examples with longer Messages</span></a></p></li>
-</ul>
-</section>
 <section id="ceaser-cipher-algorithm">
 <h2><strong>1. Ceaser Cipher Algorithm</strong><a class="headerlink" href="#ceaser-cipher-algorithm" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
@@ -569,38 +555,40 @@ Decrypted Message: Hello World!
 </div>
 </div>
 </div>
-<section id="explanation-of-the-shift">
-<h4>Explanation of the Shift<a class="headerlink" href="#explanation-of-the-shift" title="Link to this heading">#</a></h4>
-<p>Given a shift of <span class="math notranslate nohighlight">\(22\)</span>, let’s see how the encryption and decryption work mathematically.</p>
-<p><strong>Encryption:</strong>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Explanation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<h4 class="rubric" id="explanation-of-the-shift">Explanation of the Shift</h4>
+<p class="sd-card-text">Given a shift of <span class="math notranslate nohighlight">\(22\)</span>, let’s see how the encryption and decryption work mathematically.</p>
+<p class="sd-card-text"><strong>Encryption:</strong>
 For the letter <span class="math notranslate nohighlight">\(H\)</span> (which corresponds to 7):</p>
 <div class="math notranslate nohighlight">
 \[
 E(7) = (7 + 22) \mod 26 = 29 \mod 26 = 3
 \]</div>
-<p>The number 3 corresponds to the letter <span class="math notranslate nohighlight">\(D\)</span>.</p>
-<p>For the letter <span class="math notranslate nohighlight">\(e\)</span> (which corresponds to 4):</p>
+<p class="sd-card-text">The number 3 corresponds to the letter <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p class="sd-card-text">For the letter <span class="math notranslate nohighlight">\(e\)</span> (which corresponds to 4):</p>
 <div class="math notranslate nohighlight">
 \[
 E(4) = (4 + 22) \mod 26 = 26 \mod 26 = 0
 \]</div>
-<p>The number 0 corresponds to the letter <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p><strong>Decryption:</strong>
+<p class="sd-card-text">The number 0 corresponds to the letter <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p class="sd-card-text"><strong>Decryption:</strong>
 For the letter <span class="math notranslate nohighlight">\(D\)</span> (which corresponds to 3):</p>
 <div class="math notranslate nohighlight">
 \[
 D(3) = (3 - 22) \mod 26 = -19 \mod 26 = 7
 \]</div>
-<p>The number 7 corresponds to the letter <span class="math notranslate nohighlight">\(H\)</span>.</p>
-<p>For the letter <span class="math notranslate nohighlight">\(A\)</span> (which corresponds to 0):</p>
+<p class="sd-card-text">The number 7 corresponds to the letter <span class="math notranslate nohighlight">\(H\)</span>.</p>
+<p class="sd-card-text">For the letter <span class="math notranslate nohighlight">\(A\)</span> (which corresponds to 0):</p>
 <div class="math notranslate nohighlight">
 \[
 D(0) = (0 - 22) \mod 26 = -22 \mod 26 = 4
 \]</div>
-<p>The number 4 corresponds to the letter <span class="math notranslate nohighlight">\(e\)</span>.</p>
-<p>So, with a shift of <span class="math notranslate nohighlight">\(22\)</span>, “Hello World!” becomes “Dahhk Sknhz!” upon encryption and reverts to “Hello World!” upon decryption.</p>
-</section>
-</section>
+<p class="sd-card-text">The number 4 corresponds to the letter <span class="math notranslate nohighlight">\(e\)</span>.</p>
+<p class="sd-card-text">So, with a shift of <span class="math notranslate nohighlight">\(22\)</span>, “Hello World!” becomes “Dahhk Sknhz!” upon encryption and reverts to “Hello World!” upon decryption.</p>
+</div>
+</details></section>
 <section id="example-2-encryption-and-decryption-of-a-message">
 <h3>Example 2: Encryption and Decryption of a Message<a class="headerlink" href="#example-2-encryption-and-decryption-of-a-message" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -620,38 +608,40 @@ Decrypted Message: Hello World!
 </div>
 </div>
 </div>
-<section id="id1">
-<h4>Explanation of the Shift<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
-<p>Given a shift of <span class="math notranslate nohighlight">\(10\)</span>, let’s see how the encryption and decryption work mathematically.</p>
-<p><strong>Encryption:</strong>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Explanation</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<h4 class="rubric" id="id1">Explanation of the Shift</h4>
+<p class="sd-card-text">Given a shift of <span class="math notranslate nohighlight">\(10\)</span>, let’s see how the encryption and decryption work mathematically.</p>
+<p class="sd-card-text"><strong>Encryption:</strong>
 For the letter <span class="math notranslate nohighlight">\(H\)</span> (which corresponds to 7):</p>
 <div class="math notranslate nohighlight">
 \[
 E(7) = (7 + 10) \mod 26 = 17 \mod 26 = 17
 \]</div>
-<p>The number 17 corresponds to the letter <span class="math notranslate nohighlight">\(R\)</span>.</p>
-<p>For the letter <span class="math notranslate nohighlight">\(e\)</span> (which corresponds to 4):</p>
+<p class="sd-card-text">The number 17 corresponds to the letter <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p class="sd-card-text">For the letter <span class="math notranslate nohighlight">\(e\)</span> (which corresponds to 4):</p>
 <div class="math notranslate nohighlight">
 \[
 E(4) = (4 + 10) \mod 26 = 14 \mod 26 = 14
 \]</div>
-<p>The number 14 corresponds to the letter <span class="math notranslate nohighlight">\(O\)</span>.</p>
-<p><strong>Decryption:</strong>
+<p class="sd-card-text">The number 14 corresponds to the letter <span class="math notranslate nohighlight">\(O\)</span>.</p>
+<p class="sd-card-text"><strong>Decryption:</strong>
 For the letter <span class="math notranslate nohighlight">\(R\)</span> (which corresponds to 17):</p>
 <div class="math notranslate nohighlight">
 \[
 D(17) = (17 - 10) \mod 26 = 7 \mod 26 = 7
 \]</div>
-<p>The number 7 corresponds to the letter <span class="math notranslate nohighlight">\(H\)</span>.</p>
-<p>For the letter <span class="math notranslate nohighlight">\(O\)</span> (which corresponds to 14):</p>
+<p class="sd-card-text">The number 7 corresponds to the letter <span class="math notranslate nohighlight">\(H\)</span>.</p>
+<p class="sd-card-text">For the letter <span class="math notranslate nohighlight">\(O\)</span> (which corresponds to 14):</p>
 <div class="math notranslate nohighlight">
 \[
 D(14) = (14 - 10) \mod 26 = 4 \mod 26 = 4
 \]</div>
-<p>The number 4 corresponds to the letter <span class="math notranslate nohighlight">\(e\)</span>.</p>
-<p>So, with a shift of <span class="math notranslate nohighlight">\(10\)</span>, “Hello World!” becomes “Rovvy Gybvn!” upon encryption and reverts to “Hello World!” upon decryption.</p>
-</section>
-</section>
+<p class="sd-card-text">The number 4 corresponds to the letter <span class="math notranslate nohighlight">\(e\)</span>.</p>
+<p class="sd-card-text">So, with a shift of <span class="math notranslate nohighlight">\(10\)</span>, “Hello World!” becomes “Rovvy Gybvn!” upon encryption and reverts to “Hello World!” upon decryption.</p>
+</div>
+</details></section>
 <section id="brute-force-attack-on-the-cipher">
 <h3>Brute Force Attack on the Cipher<a class="headerlink" href="#brute-force-attack-on-the-cipher" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -917,17 +907,10 @@ Rz tydetefetzy nzydfxpc wzdd lczfyo.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-algorithm"><strong>1. Ceaser Cipher Algorithm</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-example"><strong>2. Ceaser Cipher Example</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-encryption-and-decryption-of-a-message">Example 1: Encryption and Decryption of a Message</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-shift">Explanation of the Shift</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-encryption-and-decryption-of-a-message">Example 2: Encryption and Decryption of a Message</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Explanation of the Shift</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-encryption-and-decryption-of-a-message">Example 1: Encryption and Decryption of a Message</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-encryption-and-decryption-of-a-message">Example 2: Encryption and Decryption of a Message</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-attack-on-the-cipher">Brute Force Attack on the Cipher</a></li>
 </ul>
 </li>

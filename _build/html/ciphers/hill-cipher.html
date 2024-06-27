@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -380,11 +381,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-algorithm"><strong>1. Hill Cipher Algorithm</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-hill-cipher"><strong>2. Examples of the Hill Cipher</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-is-an-example-of-the-hill-cipher-in-action">The following is an example of the Hill cipher in action:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-hill-cipher-example">Explanation of the Hill Cipher Example</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-invertible-key-matrix"><strong>3. Generating Invertible Key Matrix</strong></a></li>
@@ -495,17 +494,6 @@ document.write(`
 </li>
 </ul>
 </section>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="##1.hill-cipher-algorithm"><span class="xref myst">1. Hill Cipher Algorithm</span></a></p></li>
-<li><p><a class="reference internal" href="##2.examples-of-the-hill-cipher"><span class="xref myst">2. Examples of the Hill Cipher</span></a></p></li>
-<li><p><a class="reference internal" href="##3.generating-invertible-key-matrix"><span class="xref myst">3. Generating Invertible Key Matrix</span></a></p></li>
-<li><p><a class="reference internal" href="##4.hill-cipher-with-random-key-matrix"><span class="xref myst">4. Hill Cipher with Random Key Matrix</span></a></p></li>
-<li><p><a class="reference internal" href="##5.comparing-matrix-size-and-execution-time"><span class="xref myst">5. Comparing Matrix Size and Execution Time</span></a></p></li>
-</ul>
-</section>
-<hr class="docutils" />
 <section id="hill-cipher-algorithm">
 <h2><strong>1. Hill Cipher Algorithm</strong><a class="headerlink" href="#hill-cipher-algorithm" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
@@ -593,10 +581,11 @@ The decrypted message is: HELLOX
 </div>
 </div>
 </div>
-</section>
-<section id="explanation-of-the-hill-cipher-example">
-<h3>Explanation of the Hill Cipher Example<a class="headerlink" href="#explanation-of-the-hill-cipher-example" title="Link to this heading">#</a></h3>
-<p>Given the key matrix:</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Explanation:</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<h3 class="rubric" id="explanation-of-the-hill-cipher-example">Explanation of the Hill Cipher Example</h3>
+<p class="sd-card-text">Given the key matrix:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 K = \begin{pmatrix}
@@ -605,21 +594,21 @@ K = \begin{pmatrix}
 20 &amp; 17 &amp; 15
 \end{pmatrix}
 \end{split}\]</div>
-<p>and the message “HELLO”:</p>
+<p class="sd-card-text">and the message “HELLO”:</p>
 <ol class="arabic">
-<li><p><strong>Transformation of Letters to Numbers</strong>:</p>
+<li><p class="sd-card-text"><strong>Transformation of Letters to Numbers</strong>:</p>
 <ul class="simple">
-<li><p>The message “HELLO” is padded to “HELLOX” to fit the matrix size.</p></li>
-<li><p>Convert letters to numbers:</p></li>
+<li><p class="sd-card-text">The message “HELLO” is padded to “HELLOX” to fit the matrix size.</p></li>
+<li><p class="sd-card-text">Convert letters to numbers:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
     \text{H} = 7, \ \text{E} = 4, \ \text{L} = 11, \ \text{L} = 11, \ \text{O} = 14, \ \text{X} = 23
     \]</div>
 </li>
-<li><p><strong>Forming the Plaintext Vector</strong>:</p>
+<li><p class="sd-card-text"><strong>Forming the Plaintext Vector</strong>:</p>
 <ul class="simple">
-<li><p>Group the numbers into vectors of size 3 (matching the matrix size):</p></li>
+<li><p class="sd-card-text">Group the numbers into vectors of size 3 (matching the matrix size):</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -629,14 +618,14 @@ K = \begin{pmatrix}
     \end{pmatrix}
     \end{split}\]</div>
 </li>
-<li><p><strong>Encryption Process</strong>:</p>
+<li><p class="sd-card-text"><strong>Encryption Process</strong>:</p>
 <ul class="simple">
-<li><p>Multiply each vector by the key matrix <span class="math notranslate nohighlight">\(K\)</span> modulo 26:</p></li>
+<li><p class="sd-card-text">Multiply each vector by the key matrix <span class="math notranslate nohighlight">\(K\)</span> modulo 26:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[C = K \cdot P \mod 26\]</div>
 <ul>
-<li><p>For the first vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 7 \\ 4 \\ 11 \end{pmatrix}\)</span>:</p>
+<li><p class="sd-card-text">For the first vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 7 \\ 4 \\ 11 \end{pmatrix}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
         \begin{pmatrix}
@@ -658,7 +647,7 @@ K = \begin{pmatrix}
         \end{pmatrix}
         \end{split}\]</div>
 </li>
-<li><p>Repeat for the second vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 11 \\ 14 \\ 23 \end{pmatrix}\)</span>:</p></li>
+<li><p class="sd-card-text">Repeat for the second vector <span class="math notranslate nohighlight">\(\begin{pmatrix} 11 \\ 14 \\ 23 \end{pmatrix}\)</span>:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -681,21 +670,22 @@ K = \begin{pmatrix}
     \end{pmatrix}
     \end{split}\]</div>
 <ul class="simple">
-<li><p>Combine results to get the ciphertext:</p></li>
+<li><p class="sd-card-text">Combine results to get the ciphertext:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
     \text{Ciphertext: } \text{IZRQRO}
     \]</div>
 </li>
-<li><p><strong>Decryption Process</strong>:</p>
+<li><p class="sd-card-text"><strong>Decryption Process</strong>:</p>
 <ul class="simple">
-<li><p>Use the inverse of the key matrix <span class="math notranslate nohighlight">\(K^{-1}\)</span> to decrypt. Multiply each ciphertext vector by <span class="math notranslate nohighlight">\(K^{-1}\)</span> modulo 26 to retrieve the plaintext vectors.</p></li>
+<li><p class="sd-card-text">Use the inverse of the key matrix <span class="math notranslate nohighlight">\(K^{-1}\)</span> to decrypt. Multiply each ciphertext vector by <span class="math notranslate nohighlight">\(K^{-1}\)</span> modulo 26 to retrieve the plaintext vectors.</p></li>
 </ul>
 </li>
 </ol>
-<p>So, the message “HELLO” is encrypted as “IZRQRO” using the Hill cipher with the given key matrix.</p>
-<p>Here is the same matrix, this time with the plaintext <code class="docutils literal notranslate"><span class="pre">Why</span> <span class="pre">hello</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">my</span> <span class="pre">message</span> <span class="pre">to</span> <span class="pre">you</span></code>, you’ll notice the plain text returned is <code class="docutils literal notranslate"><span class="pre">WHYHELLOTHISISMYMESSAGETOYOUX</span></code>. The spaces are removed and the text is converted to uppercase, as well as the X added to the end to make the length a multiple of 3.</p>
+<p class="sd-card-text">So, the message “HELLO” is encrypted as “IZRQRO” using the Hill cipher with the given key matrix.</p>
+</div>
+</details><p>Here is the same matrix, this time with the plaintext <code class="docutils literal notranslate"><span class="pre">Why</span> <span class="pre">hello</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">my</span> <span class="pre">message</span> <span class="pre">to</span> <span class="pre">you</span></code>, you’ll notice the plain text returned is <code class="docutils literal notranslate"><span class="pre">WHYHELLOTHISISMYMESSAGETOYOUX</span></code>. The spaces are removed and the text is converted to uppercase, as well as the X added to the end to make the length a multiple of 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key_matrix</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">15</span><span class="p">]])</span>
@@ -949,11 +939,9 @@ Wall time: 16.4 s
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-algorithm"><strong>1. Hill Cipher Algorithm</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-hill-cipher"><strong>2. Examples of the Hill Cipher</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-is-an-example-of-the-hill-cipher-in-action">The following is an example of the Hill cipher in action:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-of-the-hill-cipher-example">Explanation of the Hill Cipher Example</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-invertible-key-matrix"><strong>3. Generating Invertible Key Matrix</strong></a></li>
