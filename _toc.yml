@@ -1,0 +1,16 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Ciphers
+    numbered: false
+    chapters:
+      - file: ciphers/ceaser-cipher
+      - file: ciphers/hill-cipher
+  - caption: Number Theory
+    numbered: false
+    chapters:
+      - file: number-theory/modular-arithmetic
+      - file: number-theory/number-theory-basics
