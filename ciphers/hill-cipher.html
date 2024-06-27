@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'ciphers/hill-cipher';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Number Theory Basics" href="../number-theory/number-theory-basics.html" />
+    <link rel="next" title="Modular Arithmetic" href="../number-theory/modular-arithmetic.html" />
     <link rel="prev" title="The Ceaser Cipher" href="ceaser-cipher.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,25 +175,18 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to the World of Cryptography!
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ciphers</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ceaser-cipher.html">The Ceaser Cipher</a></li>
-
-
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>The Hill Cipher</strong></a></li>
-
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../number-theory/modular-arithmetic.html">Modular Arithmetic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../number-theory/number-theory-basics.html"><strong>Number Theory Basics</strong></a></li>
 
 
@@ -397,20 +390,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>The Hill Cipher</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-algorithm"><strong>1. Hill Cipher Algorithm</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-hill-cipher"><strong>2. Examples of the Hill Cipher</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-is-an-example-of-the-hill-cipher-in-action">The following is an example of the Hill cipher in action:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-algorithm"><strong>1. Hill Cipher Algorithm</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-hill-cipher"><strong>2. Examples of the Hill Cipher</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-is-an-example-of-the-hill-cipher-in-action">The following is an example of the Hill cipher in action:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-invertible-key-matrix"><strong>3. Generating Invertible Key Matrix</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-with-random-key-matrix"><strong>4. Hill Cipher with Random Key Matrix</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-matrix-size-and-execution-time"><strong>5. Comparing matrix size and Execution Time</strong></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-invertible-key-matrix"><strong>3. Generating Invertible Key Matrix</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-with-random-key-matrix"><strong>4. Hill Cipher with Random Key Matrix</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-matrix-size-and-execution-time"><strong>5. Comparing matrix size and Execution Time</strong></a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -421,7 +410,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="the-hill-cipher">
+<h1><strong>The Hill Cipher</strong><a class="headerlink" href="#the-hill-cipher" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>The Hill cipher is a polygraphic substitution cipher based on linear algebra. It was invented by Lester S. Hill in 1929. The cipher uses an <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">n</span></code> matrix to encrypt blocks of <code class="docutils literal notranslate"><span class="pre">n</span></code> letters at a time. The matrix must be invertible, and the determinant of the matrix must be coprime with the length of the alphabet. The matrix is multiplied by a vector of the plaintext to get the ciphertext. The inverse of the matrix is used to decrypt the ciphertext.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="##1.hill-cipher-algorithm"><span class="xref myst">1. Hill Cipher Algorithm</span></a></p></li>
+<li><p><a class="reference internal" href="##2.examples-of-the-hill-cipher"><span class="xref myst">2. Examples of the Hill Cipher</span></a></p></li>
+<li><p><a class="reference internal" href="##3.generating-invertible-key-matrix"><span class="xref myst">3. Generating Invertible Key Matrix</span></a></p></li>
+<li><p><a class="reference internal" href="##4.hill-cipher-with-random-key-matrix"><span class="xref myst">4. Hill Cipher with Random Key Matrix</span></a></p></li>
+<li><p><a class="reference internal" href="##5.comparing-matrix-size-and-execution-time"><span class="xref myst">5. Comparing Matrix Size and Execution Time</span></a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="hill-cipher-algorithm">
+<h2><strong>1. Hill Cipher Algorithm</strong><a class="headerlink" href="#hill-cipher-algorithm" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>The Hill cipher functions are implemented in the following order:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hill_cipher_encrypt</span></code>: Encrypts the plaintext using the Hill cipher. It takes the <code class="docutils literal notranslate"><span class="pre">key</span></code> matrix and the <code class="docutils literal notranslate"><span class="pre">plaintext</span></code> as input and returns the ciphertext. It will also pad the plaintext if the length of the plaintext is not a multiple of the key matrix size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hill_cipher_decrypt</span></code>: Decrypts the ciphertext using the Hill cipher. It takes the <code class="docutils literal notranslate"><span class="pre">key</span></code> matrix and the <code class="docutils literal notranslate"><span class="pre">ciphertext</span></code> as input and returns the plaintext.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hill_cipher</span></code>: Is used for both encryption and decryption. It takes the <code class="docutils literal notranslate"><span class="pre">key</span></code>, <code class="docutils literal notranslate"><span class="pre">text</span></code>, and <code class="docutils literal notranslate"><span class="pre">mode</span></code> as input and returns the encrypted or decrypted text based on the mode. Then outputs the results.</p></li>
+</ul>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">import</span> <span class="nn">random</span>
@@ -442,31 +455,6 @@ document.write(`
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="the-hill-cipher">
-<h1><strong>The Hill Cipher</strong><a class="headerlink" href="#the-hill-cipher" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
-<p>The Hill cipher is a polygraphic substitution cipher based on linear algebra. It was invented by Lester S. Hill in 1929. The cipher uses an <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">n</span></code> matrix to encrypt blocks of <code class="docutils literal notranslate"><span class="pre">n</span></code> letters at a time. The matrix must be invertible, and the determinant of the matrix must be coprime with the length of the alphabet. The matrix is multiplied by a vector of the plaintext to get the ciphertext. The inverse of the matrix is used to decrypt the ciphertext.</p>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#1.hill-cipher-algorithm"><span class="xref myst">1. Hill Cipher Algorithm</span></a></p></li>
-<li><p><a class="reference internal" href="#2.examples-of-the-hill-cipher"><span class="xref myst">2. Examples of the Hill Cipher</span></a></p></li>
-<li><p><a class="reference internal" href="#3.generating-invertible-key-matrix"><span class="xref myst">3. Generating Invertible Key Matrix</span></a></p></li>
-<li><p><a class="reference internal" href="#4.hill-cipher-with-random-key-matrix"><span class="xref myst">4. Hill Cipher with Random Key Matrix</span></a></p></li>
-<li><p><a class="reference internal" href="#5.comparing-matrix-size-and-execution-time"><span class="xref myst">5. Comparing Matrix Size and Execution Time</span></a></p></li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="hill-cipher-algorithm">
-<h1><strong>1. Hill Cipher Algorithm</strong><a class="headerlink" href="#hill-cipher-algorithm" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
-<p>The Hill cipher functions are implemented in the following order:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">hill_cipher_encrypt</span></code>: Encrypts the plaintext using the Hill cipher. It takes the <code class="docutils literal notranslate"><span class="pre">key</span></code> matrix and the <code class="docutils literal notranslate"><span class="pre">plaintext</span></code> as input and returns the ciphertext. It will also pad the plaintext if the length of the plaintext is not a multiple of the key matrix size.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hill_cipher_decrypt</span></code>: Decrypts the ciphertext using the Hill cipher. It takes the <code class="docutils literal notranslate"><span class="pre">key</span></code> matrix and the <code class="docutils literal notranslate"><span class="pre">ciphertext</span></code> as input and returns the plaintext.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hill_cipher</span></code>: Is used for both encryption and decryption. It takes the <code class="docutils literal notranslate"><span class="pre">key</span></code>, <code class="docutils literal notranslate"><span class="pre">text</span></code>, and <code class="docutils literal notranslate"><span class="pre">mode</span></code> as input and returns the encrypted or decrypted text based on the mode. Then outputs the results.</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hill_cipher_encrypt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">key_matrix</span><span class="p">):</span>
@@ -512,11 +500,11 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="examples-of-the-hill-cipher">
-<h1><strong>2. Examples of the Hill Cipher</strong><a class="headerlink" href="#examples-of-the-hill-cipher" title="Link to this heading">#</a></h1>
+<section id="examples-of-the-hill-cipher">
+<h2><strong>2. Examples of the Hill Cipher</strong><a class="headerlink" href="#examples-of-the-hill-cipher" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="the-following-is-an-example-of-the-hill-cipher-in-action">
-<h2>The following is an example of the Hill cipher in action:<a class="headerlink" href="#the-following-is-an-example-of-the-hill-cipher-in-action" title="Link to this heading">#</a></h2>
+<h3>The following is an example of the Hill cipher in action:<a class="headerlink" href="#the-following-is-an-example-of-the-hill-cipher-in-action" title="Link to this heading">#</a></h3>
 <p>Here the key matrix is a <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">x</span> <span class="pre">3</span></code> matrix and the plaintext is <code class="docutils literal notranslate"><span class="pre">HELLO</span></code>. You’ll notice the plaintext is padded with an <code class="docutils literal notranslate"><span class="pre">X</span></code> to make the length of the plaintext a multiple of 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -557,8 +545,8 @@ The decrypted message is: WHYHELLOTHISISMYMESSAGETOYOUXX
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="generating-invertible-key-matrix">
-<h1><strong>3. Generating Invertible Key Matrix</strong><a class="headerlink" href="#generating-invertible-key-matrix" title="Link to this heading">#</a></h1>
+<section id="generating-invertible-key-matrix">
+<h2><strong>3. Generating Invertible Key Matrix</strong><a class="headerlink" href="#generating-invertible-key-matrix" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>The following function generates an invertible key matrix for the Hill cipher. The matrix is generated by randomly selecting values between 0 and 25. The function checks if the matrix is invertible by calculating the determinant and checking if it is coprime with the length of the alphabet.</p>
 <p>We will also user the faker library to generate a random message for encrypting.</p>
@@ -610,8 +598,8 @@ Matrix([[13, 1, 15], [8, 17, 6], [9, 4, 24]])
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="hill-cipher-with-random-key-matrix">
-<h1><strong>4. Hill Cipher with Random Key Matrix</strong><a class="headerlink" href="#hill-cipher-with-random-key-matrix" title="Link to this heading">#</a></h1>
+<section id="hill-cipher-with-random-key-matrix">
+<h2><strong>4. Hill Cipher with Random Key Matrix</strong><a class="headerlink" href="#hill-cipher-with-random-key-matrix" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Now, we will use the Hill cipher with a randomly generated key matrix. We will encrypt and decrypt the plaintext thats randomly generated thanks to the <code class="docutils literal notranslate"><span class="pre">faker</span></code> library.</p>
 <div class="cell docutils container">
@@ -681,8 +669,9 @@ Wall time: 1.71 s
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="comparing-matrix-size-and-execution-time">
-<h1><strong>5. Comparing matrix size and Execution Time</strong><a class="headerlink" href="#comparing-matrix-size-and-execution-time" title="Link to this heading">#</a></h1>
+<section id="comparing-matrix-size-and-execution-time">
+<h2><strong>5. Comparing matrix size and Execution Time</strong><a class="headerlink" href="#comparing-matrix-size-and-execution-time" title="Link to this heading">#</a></h2>
+<p>–</p>
 <p>In the following two examples, both messages are 200 charcters long, however the first one uses a <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">x</span> <span class="pre">5</span></code> matrix which takes <code class="docutils literal notranslate"><span class="pre">75ms</span></code> to encrypt and decrypt, while the second one uses a <code class="docutils literal notranslate"><span class="pre">15</span> <span class="pre">x</span> <span class="pre">15</span></code> matrix which takes <code class="docutils literal notranslate"><span class="pre">16.4s</span></code> to encrypt and decrypt. This shows the time difference between the matrix sizes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -731,6 +720,7 @@ Wall time: 16.4 s
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -772,11 +762,11 @@ Wall time: 16.4 s
       </div>
     </a>
     <a class="right-next"
-       href="../number-theory/number-theory-basics.html"
+       href="../number-theory/modular-arithmetic.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Number Theory Basics</strong></p>
+        <p class="prev-next-title">Modular Arithmetic</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -796,20 +786,16 @@ Wall time: 16.4 s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>The Hill Cipher</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-algorithm"><strong>1. Hill Cipher Algorithm</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-hill-cipher"><strong>2. Examples of the Hill Cipher</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-is-an-example-of-the-hill-cipher-in-action">The following is an example of the Hill cipher in action:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-algorithm"><strong>1. Hill Cipher Algorithm</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-the-hill-cipher"><strong>2. Examples of the Hill Cipher</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-is-an-example-of-the-hill-cipher-in-action">The following is an example of the Hill cipher in action:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-invertible-key-matrix"><strong>3. Generating Invertible Key Matrix</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-with-random-key-matrix"><strong>4. Hill Cipher with Random Key Matrix</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-matrix-size-and-execution-time"><strong>5. Comparing matrix size and Execution Time</strong></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-invertible-key-matrix"><strong>3. Generating Invertible Key Matrix</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hill-cipher-with-random-key-matrix"><strong>4. Hill Cipher with Random Key Matrix</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-matrix-size-and-execution-time"><strong>5. Comparing matrix size and Execution Time</strong></a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The Hill Cipher" href="hill-cipher.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
+    <link rel="prev" title="Welcome to the World of Cryptography!" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,25 +175,18 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to the World of Cryptography!
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ciphers</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">The Ceaser Cipher</a></li>
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="hill-cipher.html"><strong>The Hill Cipher</strong></a></li>
-
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../number-theory/modular-arithmetic.html">Modular Arithmetic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../number-theory/number-theory-basics.html"><strong>Number Theory Basics</strong></a></li>
 
 
@@ -397,15 +390,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Ceaser Cipher</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-algorithm"><strong>1. Ceaser Cipher Algorithm</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-example"><strong>2. Ceaser Cipher Example</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-with-longer-messages"><strong>3. Examples with longer Messages</strong></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-algorithm"><strong>1. Ceaser Cipher Algorithm</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-example"><strong>2. Ceaser Cipher Example</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-with-longer-messages"><strong>3. Examples with longer Messages</strong></a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -416,31 +405,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">faker</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">random</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">faker</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="the-ceaser-cipher">
+  <section class="tex2jax_ignore mathjax_ignore" id="the-ceaser-cipher">
 <h1>The Ceaser Cipher<a class="headerlink" href="#the-ceaser-cipher" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
-<p>The Caesar cipher is a type of substitution cipher in which each letter in the plaintext is shifted a certain number of places down the alphabet. For example, with a shift of <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code> would be replaced by <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code> would become <code class="docutils literal notranslate"><span class="pre">C</span></code>, and so on. The method is named after Julius Caesar, who used it to communicate with his officials.</p>
+<p>import random
+import fakerThe Caesar cipher is a type of substitution cipher in which each letter in the plaintext is shifted a certain number of places down the alphabet. For example, with a shift of <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code> would be replaced by <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code> would become <code class="docutils literal notranslate"><span class="pre">C</span></code>, and so on. The method is named after Julius Caesar, who used it to communicate with his officials.</p>
 <ul class="simple">
 <li><p>The encryption can be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">=</span> <span class="pre">1</span></code>, …, <code class="docutils literal notranslate"><span class="pre">Z</span> <span class="pre">=</span> <span class="pre">25</span></code>.</p></li>
 <li><p>Encryption of a letter <code class="docutils literal notranslate"><span class="pre">x</span></code> by a shift <code class="docutils literal notranslate"><span class="pre">k</span></code> can be described mathematically as, <code class="docutils literal notranslate"><span class="pre">E(x)</span> <span class="pre">=</span> <span class="pre">(x</span> <span class="pre">+</span> <span class="pre">k)</span> <span class="pre">mod</span> <span class="pre">26</span></code></p></li>
@@ -449,14 +418,13 @@ document.write(`
 <section id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="#1.-ceaser-cipher-algorithm"><span class="xref myst">1. Ceaser Cipher Algorithm</span></a></p></li>
-<li><p><a class="reference internal" href="#2.-ceaser-cipher-example"><span class="xref myst">2. Ceaser Cipher Example</span></a></p></li>
-<li><p><a class="reference internal" href="#3.-examples-with-longer-messages"><span class="xref myst">3. Examples with longer Messages</span></a></p></li>
+<li><p><a class="reference internal" href="##1.-ceaser-cipher-algorithm"><span class="xref myst">1. Ceaser Cipher Algorithm</span></a></p></li>
+<li><p><a class="reference internal" href="##2.-ceaser-cipher-example"><span class="xref myst">2. Ceaser Cipher Example</span></a></p></li>
+<li><p><a class="reference internal" href="##3.-examples-with-longer-messages"><span class="xref myst">3. Examples with longer Messages</span></a></p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ceaser-cipher-algorithm">
-<h1><strong>1. Ceaser Cipher Algorithm</strong><a class="headerlink" href="#ceaser-cipher-algorithm" title="Link to this heading">#</a></h1>
+<section id="ceaser-cipher-algorithm">
+<h2><strong>1. Ceaser Cipher Algorithm</strong><a class="headerlink" href="#ceaser-cipher-algorithm" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>The following functions are used in the algorithm:</p>
 <ul class="simple">
@@ -465,6 +433,25 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">ceaser_cipher_brute_force</span></code>: Brute forces the Caesar cipher by decrypting the given text for all possible shift values.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ceaser_cipher</span></code>: Runs the calculation for the Caesar cipher algorithm and outputs the encrypted and decrypted text.</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">faker</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">random</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">faker</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;faker&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">caesar_cipher_encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">shift</span><span class="p">):</span>
@@ -516,8 +503,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="ceaser-cipher-example">
-<h1><strong>2. Ceaser Cipher Example</strong><a class="headerlink" href="#ceaser-cipher-example" title="Link to this heading">#</a></h1>
+<section id="ceaser-cipher-example">
+<h2><strong>2. Ceaser Cipher Example</strong><a class="headerlink" href="#ceaser-cipher-example" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -576,8 +563,8 @@ Shift: 25 =&gt; Lipps Asvph!
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="examples-with-longer-messages">
-<h1><strong>3. Examples with longer Messages</strong><a class="headerlink" href="#examples-with-longer-messages" title="Link to this heading">#</a></h1>
+<section id="examples-with-longer-messages">
+<h2><strong>3. Examples with longer Messages</strong><a class="headerlink" href="#examples-with-longer-messages" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>The following function is introduced using the <code class="docutils literal notranslate"><span class="pre">faker</span></code> library to generate a random message. The function <code class="docutils literal notranslate"><span class="pre">generate_random_message</span></code> generates a random message with a specified length.</p>
 <div class="cell docutils container">
@@ -612,7 +599,12 @@ Father second country social west partner maintain. Huge your song prove.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plaintext</span> <span class="o">=</span> <span class="n">random_message</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;scroll-output&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="n">plaintext</span> <span class="o">=</span> <span class="n">random_message</span><span class="p">()</span>
 <span class="n">ciphertext</span> <span class="o">=</span> <span class="n">caesar_cipher_encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">shift</span><span class="p">)</span>
 <span class="n">ceaser_cipher_brute_force</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span>
 </pre></div>
@@ -732,6 +724,7 @@ Rz tydetefetzy nzydfxpc wzdd lczfyo.
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -769,7 +762,7 @@ Rz tydetefetzy nzydfxpc wzdd lczfyo.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Welcome to the World of Cryptography!</p>
       </div>
     </a>
     <a class="right-next"
@@ -797,15 +790,11 @@ Rz tydetefetzy nzydfxpc wzdd lczfyo.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">The Ceaser Cipher</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-algorithm"><strong>1. Ceaser Cipher Algorithm</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-example"><strong>2. Ceaser Cipher Example</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-with-longer-messages"><strong>3. Examples with longer Messages</strong></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-algorithm"><strong>1. Ceaser Cipher Algorithm</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ceaser-cipher-example"><strong>2. Ceaser Cipher Example</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-with-longer-messages"><strong>3. Examples with longer Messages</strong></a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
