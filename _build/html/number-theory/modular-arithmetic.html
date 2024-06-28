@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Modular Arithmetic &#8212; The world of Cryptography</title>
+    <title>Modular Arithmetic &#8212; The world of Cryptography</title>
   
   
   
@@ -58,10 +58,14 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'number-theory/modular-arithmetic';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Ceaser Cipher" href="../ciphers/ceaser-cipher.html" />
+    <link rel="prev" title="Prime Numbers" href="prime-numbers.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +128,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +183,22 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ciphers</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="prime-numbers.html"><strong>Prime Numbers</strong></a></li>
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Modular Arithmetic</strong></a></li>
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ciphers</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ciphers/ceaser-cipher.html">The Ceaser Cipher</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ciphers/hill-cipher.html"><strong>The Hill Cipher</strong></a></li>
@@ -233,50 +250,18 @@
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fnumber-theory/modular-arithmetic.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -362,7 +347,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -378,6 +365,20 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Modular Arithmetic</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition"><strong>Modular Addition</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-subtraction"><strong>Modular Subtraction</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication"><strong>Modular Multiplication</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-inverse"><strong>Modular Inverse</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation"><strong>Modular Exponentiation</strong></a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -388,10 +389,289 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modular-arithmetic">
-<h1>Modular Arithmetic<a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
-<p>Modular arithmetic is a system of arithmetic for integers, where numbers “wrap around” upon reaching a certain value called the modulus. It is a way to work with numbers that are too large to be represented in a computer’s memory or too large to be manipulated using standard arithmetic operations.</p>
-<p>A great way to understand modular arithmetic is to think of a clock. The clock has 12 hours, and after 12 hours, it starts over at 1. This is an example of modular arithmetic with a modulus of 12.</p>
+<h1><strong>Modular Arithmetic</strong><a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h1>
+<p>Modular arithmetic is a system of arithmetic for integers, where numbers “wrap around” upon reaching a certain value, called the modulus. This means that after reaching the modulus, numbers start back at zero.</p>
+<p>The basic operation in modular arithmetic is to find the remainder when one integer is divided by another (the modulus).</p>
+<p>For a given modulus <span class="math notranslate nohighlight">\(m\)</span>, any integer <span class="math notranslate nohighlight">\(a\)</span> can be expressed in modular arithmetic as:</p>
+<div class="math notranslate nohighlight">
+\[
+a \mod m
+\]</div>
+<p>This represents the remainder when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(7 \mod 5 = 2\)</span> because <span class="math notranslate nohighlight">\(7\)</span> divided by <span class="math notranslate nohighlight">\(5\)</span> gives a quotient of <span class="math notranslate nohighlight">\(1\)</span> and a remainder of <span class="math notranslate nohighlight">\(2\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(12 \mod 4 = 0\)</span> because <span class="math notranslate nohighlight">\(12\)</span> divided by <span class="math notranslate nohighlight">\(4\)</span> gives a quotient of <span class="math notranslate nohighlight">\(3\)</span> and a remainder of <span class="math notranslate nohighlight">\(0\)</span>.</p></li>
+</ul>
+<p>In general:</p>
+<div class="math notranslate nohighlight">
+\[
+a \equiv b \mod m
+\]</div>
+<p>means that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> have the same remainder when divided by <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
+<span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_arithmetic</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">number</span> <span class="o">%</span> <span class="n">modulus</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">modular_arithmetic</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17 ≡ 2 (mod 5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the remainder when <span class="math notranslate nohighlight">\(17\)</span> is divided by <span class="math notranslate nohighlight">\(5\)</span>, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Divide <span class="math notranslate nohighlight">\(17\)</span> by <span class="math notranslate nohighlight">\(5\)</span></strong>: Compute the quotient and remainder.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+17 \div 5 = 3 \text{ remainder } 2
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+17 = 5 \times 3 + 2
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+17 \mod 5 = 2
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+17 \equiv 2 \mod 5
+\]</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">170</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">modular_arithmetic</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>170 ≡ 10 (mod 16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the remainder when <span class="math notranslate nohighlight">\(170\)</span> is divided by <span class="math notranslate nohighlight">\(16\)</span>, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Divide <span class="math notranslate nohighlight">\(170\)</span> by <span class="math notranslate nohighlight">\(16\)</span></strong>: Compute the quotient and remainder.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+170 \div 16 = 10 \text{ remainder } 10
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+170 = 16 \times 10 + 10
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+170 \mod 16 = 10
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+170 \equiv 10 \mod 16
+\]</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">338</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">modular_arithmetic</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>338 ≡ 2 (mod 12)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the remainder when 338 is divided by <span class="math notranslate nohighlight">\(12\)</span>, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Divide <span class="math notranslate nohighlight">\(338\)</span> by <span class="math notranslate nohighlight">\(12\)</span></strong>: Compute the quotient and remainder.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+338 \div 12 = 28 \text{ remainder } 2
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+338 = 12 \times 28 + 2
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+338 \mod 12 = 2
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+338 \equiv 2 \mod 12
+\]</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">modular_arithmetic</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>90 ≡ 0 (mod 30)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the remainder when <span class="math notranslate nohighlight">\(90\)</span> is divided by <span class="math notranslate nohighlight">\(30\)</span>, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Divide <span class="math notranslate nohighlight">\(90\)</span> by <span class="math notranslate nohighlight">\(30\)</span></strong>: Compute the quotient and remainder.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+90 \div 30 = 3 \text{ remainder } 0
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+90 = 30 \times 3 + 0
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+90 \mod 30 = 0
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+90 \equiv 0 \mod 30
+\]</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modular-addition">
+<h1><strong>Modular Addition</strong><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h1>
+<p>Modular addition involves adding two numbers and then taking the remainder when the result is divided by the modulus.</p>
+<p>The formula for modular addition of two numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+(a + b) \mod m
+\]</div>
+<p>Steps:</p>
+<ol class="arabic simple">
+<li><p>Add the numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
+<li><p>Take the result and apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modular-subtraction">
+<h1><strong>Modular Subtraction</strong><a class="headerlink" href="#modular-subtraction" title="Link to this heading">#</a></h1>
+<p>Modular subtraction involves subtracting one number from another and then taking the remainder when the result is divided by the modulus.</p>
+<p>The formula for modular subtraction of two numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+(a - b) \mod m
+\]</div>
+<p>Steps:</p>
+<ol class="arabic simple">
+<li><p>Subtract the number <span class="math notranslate nohighlight">\(b\)</span> from <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
+<li><p>If the result is negative, add the modulus <span class="math notranslate nohighlight">\(m\)</span> until the result is non-negative.</p></li>
+<li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modular-multiplication">
+<h1><strong>Modular Multiplication</strong><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h1>
+<p>Modular multiplication involves multiplying two numbers and then taking the remainder when the result is divided by the modulus.</p>
+<p>The formula for modular multiplication of two numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+(a \times b) \mod m
+\]</div>
+<p>Steps:</p>
+<ol class="arabic simple">
+<li><p>Multiply the numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
+<li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modular-inverse">
+<h1><strong>Modular Inverse</strong><a class="headerlink" href="#modular-inverse" title="Link to this heading">#</a></h1>
+<p>The modular inverse of a number <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> is a number <span class="math notranslate nohighlight">\(x\)</span> such that:</p>
+<div class="math notranslate nohighlight">
+\[
+a \times x \equiv 1 \mod m
+\]</div>
+<p>The modular inverse exists if and only if <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(m\)</span> are coprime (i.e., <span class="math notranslate nohighlight">\(\text{gcd}(a, m) = 1\)</span>).</p>
+<p>To find the modular inverse of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>, you can use the Extended Euclidean Algorithm.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modular-exponentiation">
+<h1><strong>Modular Exponentiation</strong><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h1>
+<p>Modular exponentiation involves raising a number to an exponent and then taking the remainder when the result is divided by the modulus.</p>
+<p>The formula for modular exponentiation of a number <span class="math notranslate nohighlight">\(a\)</span> raised to an exponent <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+a^b \mod m
+\]</div>
+<p>Steps:</p>
+<ol class="arabic simple">
+<li><p>Compute the power <span class="math notranslate nohighlight">\(a^b\)</span>.</p></li>
+<li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -424,12 +704,51 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="prime-numbers.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Prime Numbers</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ciphers/ceaser-cipher.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Ceaser Cipher</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Modular Arithmetic</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition"><strong>Modular Addition</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-subtraction"><strong>Modular Subtraction</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication"><strong>Modular Multiplication</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-inverse"><strong>Modular Inverse</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation"><strong>Modular Exponentiation</strong></a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>

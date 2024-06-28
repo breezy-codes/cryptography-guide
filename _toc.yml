@@ -4,6 +4,25 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Number Theory
+    numbered: false
+    chapters:
+      - file: number-theory/prime-num-intro
+        sections:
+          - file: maths/number-theory/prime-numbers
+          - file: maths/number-theory/fermats-little-theorem
+          - file: maths/number-theory/finding-coprimes
+          - file: maths/number-theory/prime-factorisation
+          - file: maths/number-theory/gcd-lcm
+          - file: maths/number-theory/introduction
+      - file: maths/modular-arithmetic/mod-arith-intro
+        sections:
+          - file: maths/modular-arithmetic/modular-arithmetic
+          - file: maths/modular-arithmetic/modular-addition
+          - file: maths/modular-arithmetic/modular-subtraction
+          - file: maths/modular-arithmetic/modular-multiplication
+          - file: maths/modular-arithmetic/modular-inverse
+          - file: maths/modular-arithmetic/modular-exponentiation
   - caption: Ciphers
     numbered: false
     chapters:
@@ -14,8 +33,3 @@ parts:
     chapters:
       - file: RSA-Algorithm/RSA-example
       - file: RSA-Algorithm/RSA-with-large-num
-#  - caption: Number Theory
-#    numbered: false
-#    chapters:
- #     - file: number-theory/modular-arithmetic
- #     - file: number-theory/number-theory-basics
