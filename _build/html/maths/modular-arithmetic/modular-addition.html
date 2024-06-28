@@ -64,8 +64,8 @@
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Modular Addition" href="modular-subtraction.html" />
-    <link rel="prev" title="Modular Arithmetic" href="modular-arithmetic.html" />
+    <link rel="next" title="Modular Subtraction" href="modular-subtraction.html" />
+    <link rel="prev" title="Modular Arithmetic" href="mod-arith-intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -185,34 +185,24 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../number-theory/prime-num-intro.html">Prime Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-numbers.html"><strong>Prime Numbers</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+
+</ul>
+</details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="mod-arith-intro.html">Modular Arithmetic</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modular-arithmetic.html"><strong>Modular Arithmetic</strong></a></li>
-
-
-
-
-
 <li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>Modular Addition</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-subtraction.html"><strong>Modular Subtraction</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-multiplication.html"><strong>Modular Multiplication</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-inverse.html"><strong>Modular Inverse</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modular-exponentiation.html"><strong>Modular Exponentiation</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mod-introduction.html"><strong>Modular Arithmetic Complete</strong></a></li>
 
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="modular-subtraction.html"><strong>Modular Addition</strong></a></li>
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="modular-multiplication.html"><strong>Modular Addition</strong></a></li>
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="modular-inverse.html"><strong>Modular Addition</strong></a></li>
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="modular-exponentiation.html"><strong>Modular Addition</strong></a></li>
 
 
 
@@ -369,9 +359,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -387,19 +375,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Modular Addition</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-subtraction"><strong>Modular Subtraction</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication"><strong>Modular Multiplication</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-inverse"><strong>Modular Inverse</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation"><strong>Modular Exponentiation</strong></a></li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -431,59 +406,6 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Add the numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
 <li><p>Take the result and apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
-</ol>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="modular-subtraction">
-<h1><strong>Modular Subtraction</strong><a class="headerlink" href="#modular-subtraction" title="Link to this heading">#</a></h1>
-<p>Modular subtraction involves subtracting one number from another and then taking the remainder when the result is divided by the modulus.</p>
-<p>The formula for modular subtraction of two numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[
-(a - b) \mod m
-\]</div>
-<p>Steps:</p>
-<ol class="arabic simple">
-<li><p>Subtract the number <span class="math notranslate nohighlight">\(b\)</span> from <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
-<li><p>If the result is negative, add the modulus <span class="math notranslate nohighlight">\(m\)</span> until the result is non-negative.</p></li>
-<li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
-</ol>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="modular-multiplication">
-<h1><strong>Modular Multiplication</strong><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h1>
-<p>Modular multiplication involves multiplying two numbers and then taking the remainder when the result is divided by the modulus.</p>
-<p>The formula for modular multiplication of two numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[
-(a \times b) \mod m
-\]</div>
-<p>Steps:</p>
-<ol class="arabic simple">
-<li><p>Multiply the numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
-<li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
-</ol>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="modular-inverse">
-<h1><strong>Modular Inverse</strong><a class="headerlink" href="#modular-inverse" title="Link to this heading">#</a></h1>
-<p>The modular inverse of a number <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> is a number <span class="math notranslate nohighlight">\(x\)</span> such that:</p>
-<div class="math notranslate nohighlight">
-\[
-a \times x \equiv 1 \mod m
-\]</div>
-<p>The modular inverse exists if and only if <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(m\)</span> are coprime (i.e., <span class="math notranslate nohighlight">\(\text{gcd}(a, m) = 1\)</span>).</p>
-<p>To find the modular inverse of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>, you can use the Extended Euclidean Algorithm.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="modular-exponentiation">
-<h1><strong>Modular Exponentiation</strong><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h1>
-<p>Modular exponentiation involves raising a number to an exponent and then taking the remainder when the result is divided by the modulus.</p>
-<p>The formula for modular exponentiation of a number <span class="math notranslate nohighlight">\(a\)</span> raised to an exponent <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[
-a^b \mod m
-\]</div>
-<p>Steps:</p>
-<ol class="arabic simple">
-<li><p>Compute the power <span class="math notranslate nohighlight">\(a^b\)</span>.</p></li>
-<li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
 </ol>
 </section>
 
@@ -518,12 +440,12 @@ a^b \mod m
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="modular-arithmetic.html"
+       href="mod-arith-intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>Modular Arithmetic</strong></p>
+        <p class="prev-next-title">Modular Arithmetic</p>
       </div>
     </a>
     <a class="right-next"
@@ -531,7 +453,7 @@ a^b \mod m
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Modular Addition</strong></p>
+        <p class="prev-next-title"><strong>Modular Subtraction</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -541,26 +463,6 @@ a^b \mod m
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Modular Addition</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-subtraction"><strong>Modular Subtraction</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication"><strong>Modular Multiplication</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-inverse"><strong>Modular Inverse</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation"><strong>Modular Exponentiation</strong></a></li>
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>

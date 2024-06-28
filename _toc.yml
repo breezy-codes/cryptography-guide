@@ -7,14 +7,14 @@ parts:
   - caption: Number Theory
     numbered: false
     chapters:
-      - file: number-theory/prime-num-intro
+      - file: maths/number-theory/prime-num-intro
         sections:
           - file: maths/number-theory/prime-numbers
           - file: maths/number-theory/fermats-little-theorem
           - file: maths/number-theory/finding-coprimes
           - file: maths/number-theory/prime-factorisation
           - file: maths/number-theory/gcd-lcm
-          - file: maths/number-theory/introduction
+          - file: maths/number-theory/prim-introduction
       - file: maths/modular-arithmetic/mod-arith-intro
         sections:
           - file: maths/modular-arithmetic/modular-arithmetic
@@ -23,6 +23,7 @@ parts:
           - file: maths/modular-arithmetic/modular-multiplication
           - file: maths/modular-arithmetic/modular-inverse
           - file: maths/modular-arithmetic/modular-exponentiation
+          - file: maths/modular-arithmetic/mod-introduction
   - caption: Ciphers
     numbered: false
     chapters:
