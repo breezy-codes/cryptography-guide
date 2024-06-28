@@ -59,9 +59,9 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'number-theory/number-theory-basics';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="1. Modular Arithmetic" href="modular-arithmetic.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,17 +181,15 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="modular-arithmetic.html">1. Modular Arithmetic</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. <strong>Number Theory Basics</strong></a></li>
-
-
-
-
-
-
-
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ciphers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ciphers/ceaser-cipher.html">The Ceaser Cipher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ciphers/hill-cipher.html"><strong>The Hill Cipher</strong></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">RSA Algorithm</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../RSA-Algorithm/RSA-example.html"><strong>The RSA Algorithm</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RSA-Algorithm/RSA-with-large-num.html"><strong>RSA with Larger Prime Numbers</strong></a></li>
 </ul>
 
     </div>
@@ -244,7 +244,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -261,7 +261,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnumber-theory/number-theory-basics.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fnumber-theory/number-theory-basics.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -426,12 +426,12 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="number-theory-basics">
-<h1><span class="section-number">2. </span><strong>Number Theory Basics</strong><a class="headerlink" href="#number-theory-basics" title="Link to this heading">#</a></h1>
+<h1><strong>Number Theory Basics</strong><a class="headerlink" href="#number-theory-basics" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <p>Number theory is a branch of mathematics that deals with the properties and relationships of numbers, especially the integers. It is a fundamental branch of mathematics that has applications in many fields, including computer science, cryptography, and physics. In this notebook, we will cover some basic concepts in number theory, including prime numbers, Fermat’s Little Theorem, coprimes, and the greatest common divisor (GCD) and least common multiple (LCM) of two numbers.</p>
 <p>Check out the <a class="reference internal" href="#Modular-Arithmetic.ipynb"><span class="xref myst">Modular Arithmetic File</span></a> for concepts of Modular Arithmetic and periodicity.</p>
 <section id="table-of-contents">
-<h2><span class="section-number">2.1. </span>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="#1.prime-numbers"><span class="xref myst">1. Prime Numbers</span></a></p></li>
 <li><p><a class="reference internal" href="#2.generating-prime-numbers"><span class="xref myst">2. Generating Prime Numbers</span></a></p></li>
@@ -444,10 +444,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="prime-numbers">
-<h1><span class="section-number">3. </span><strong>1. Prime Numbers</strong><a class="headerlink" href="#prime-numbers" title="Link to this heading">#</a></h1>
+<h1><strong>1. Prime Numbers</strong><a class="headerlink" href="#prime-numbers" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="checing-if-number-is-prime-or-not">
-<h2><span class="section-number">3.1. </span>Checing if  number is prime or not<a class="headerlink" href="#checing-if-number-is-prime-or-not" title="Link to this heading">#</a></h2>
+<h2>Checing if  number is prime or not<a class="headerlink" href="#checing-if-number-is-prime-or-not" title="Link to this heading">#</a></h2>
 <p>To check if a number is prime or not, we need to check if it is divisible by any number other than 1 and itself. We can do this by iterating over all numbers from 2 to the square root of the number and checking if the number is divisible by any of them. If the number is divisible by any number other than 1 and itself, then it is not prime.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -532,7 +532,7 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="generating-prime-numbers">
-<h1><span class="section-number">4. </span><strong>2. Generating Prime Numbers</strong><a class="headerlink" href="#generating-prime-numbers" title="Link to this heading">#</a></h1>
+<h1><strong>2. Generating Prime Numbers</strong><a class="headerlink" href="#generating-prime-numbers" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <p>To generate a random prime number, we can generate a random number and check if it is prime using the method described above. If the number is not prime, we can generate another random number and repeat the process until we find a prime number.</p>
 <div class="cell docutils container">
@@ -623,7 +623,7 @@ p = 90239
 </div>
 </div>
 <section id="another-method-for-generating-prime-numbers">
-<h2><span class="section-number">4.1. </span>Another Method for generating prime numbers:<a class="headerlink" href="#another-method-for-generating-prime-numbers" title="Link to this heading">#</a></h2>
+<h2>Another Method for generating prime numbers:<a class="headerlink" href="#another-method-for-generating-prime-numbers" title="Link to this heading">#</a></h2>
 <p>Another method for this uses the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> library in Python. The <code class="docutils literal notranslate"><span class="pre">sympy</span></code> library provides a function called <code class="docutils literal notranslate"><span class="pre">sympy.isprime</span></code> that generates the <code class="docutils literal notranslate"><span class="pre">n</span></code>th prime number. We can use this function to generate prime numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -665,7 +665,7 @@ p = 90239
 </div>
 </section>
 <section id="generating-a-range-of-prime-numbers">
-<h2><span class="section-number">4.2. </span>Generating a range of prime numbers:<a class="headerlink" href="#generating-a-range-of-prime-numbers" title="Link to this heading">#</a></h2>
+<h2>Generating a range of prime numbers:<a class="headerlink" href="#generating-a-range-of-prime-numbers" title="Link to this heading">#</a></h2>
 <p>Here is a slight modification that allows us to print all prime numbers in a given range. We can use the <code class="docutils literal notranslate"><span class="pre">sympy.primerange</span></code> function to generate all prime numbers in a given range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -738,7 +738,7 @@ p = 90239
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="checking-if-a-number-is-prime-with-fermat-s-little-theorem">
-<h1><span class="section-number">5. </span><strong>3. Checking if a number is prime with Fermat’s Little theorem</strong><a class="headerlink" href="#checking-if-a-number-is-prime-with-fermat-s-little-theorem" title="Link to this heading">#</a></h1>
+<h1><strong>3. Checking if a number is prime with Fermat’s Little theorem</strong><a class="headerlink" href="#checking-if-a-number-is-prime-with-fermat-s-little-theorem" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <p>Checking if a number is prime is a common problem in number theory. One efficient way to perform this check is by using <strong>Fermat’s Little Theorem</strong>. This theorem states that if <code class="docutils literal notranslate"><span class="pre">p</span></code> is a prime number and <code class="docutils literal notranslate"><span class="pre">a</span></code> is an integer such that <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">≤</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">p</span></code>, then <code class="docutils literal notranslate"><span class="pre">a^(p-1)</span> <span class="pre">≡</span> <span class="pre">1</span> <span class="pre">(mod</span> <span class="pre">p)</span></code>. In other words, for a prime number <code class="docutils literal notranslate"><span class="pre">p</span></code>, <code class="docutils literal notranslate"><span class="pre">a^(p-1)</span> <span class="pre">mod</span> <span class="pre">p</span></code> should equal 1.</p>
 <p>To implement this, we will define the following functions:</p>
@@ -840,7 +840,7 @@ Wall time: 613 μs
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="finding-the-the-coprime-of-a-number">
-<h1><span class="section-number">6. </span><strong>4. Finding the the coprime of a number</strong><a class="headerlink" href="#finding-the-the-coprime-of-a-number" title="Link to this heading">#</a></h1>
+<h1><strong>4. Finding the the coprime of a number</strong><a class="headerlink" href="#finding-the-the-coprime-of-a-number" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <p>Finding the coprime of a number is useful in the RSA algorithm as the public key exponent <code class="docutils literal notranslate"><span class="pre">e</span></code> must be coprime to the totient of <code class="docutils literal notranslate"><span class="pre">n</span></code>. This ensures that the public key exponent <code class="docutils literal notranslate"><span class="pre">e</span></code> is relatively prime to the totient of <code class="docutils literal notranslate"><span class="pre">n</span></code> and that the encryption key is secure.</p>
 <p>The following calculates the coprime of a number using the math gcd function to find the GCD of two numbers. If the GCD is equal to 1, then the two numbers are coprime. If the GCD is greater than 1, then the two numbers are not coprime.</p>
@@ -921,7 +921,7 @@ Wall time: 365 μs
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="finding-the-gcd-and-lcm-of-two-numbers">
-<h1><span class="section-number">7. </span><strong>5. Finding the GCD and LCM of two numbers</strong><a class="headerlink" href="#finding-the-gcd-and-lcm-of-two-numbers" title="Link to this heading">#</a></h1>
+<h1><strong>5. Finding the GCD and LCM of two numbers</strong><a class="headerlink" href="#finding-the-gcd-and-lcm-of-two-numbers" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <p>Finding the greatest common divisor (GCD) of two numbers is a common problem in number theory. The GCD of two numbers is the largest number that divides both numbers without leaving a remainder.</p>
 <p>It can be found using the Euclidean algorithm which is an efficient way of finding the GCD of two numbers. The Euclidean algorithm works by repeatedly subtracting the smaller number from the larger number until the two numbers are equal. The GCD is then the common value that the two numbers have been reduced to.</p>
@@ -987,7 +987,7 @@ LCM of 283495740 and 1828360 is 25916613559320
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="prime-factorisation">
-<h1><span class="section-number">8. </span><strong>6. Prime Factorisation</strong><a class="headerlink" href="#prime-factorisation" title="Link to this heading">#</a></h1>
+<h1><strong>6. Prime Factorisation</strong><a class="headerlink" href="#prime-factorisation" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <p>Prime factorisation is the process of finding the prime numbers that multiply together to give a particular number. For example, the prime factorisation of 12 is 2 x 2 x 3. This is useful in many areas of mathematics, including cryptography and number theory.</p>
 <div class="cell docutils container">
@@ -1042,7 +1042,7 @@ Prime factors of 434 are: [2, 7, 31]
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">9. </span><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1075,15 +1075,6 @@ Prime factors of 434 are: [2, 7, 31]
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="modular-arithmetic.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Modular Arithmetic</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
