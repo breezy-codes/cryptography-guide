@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RSA with Larger Prime Numbers &#8212; The world of Cryptography</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'RSA-Algorithm/RSA-with-large-num';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="3. The RSA Algorithm" href="RSA-example.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="The world of Cryptography - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="The world of Cryptography - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the World of Cryptography!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ciphers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ciphers/ceaser-cipher.html">The Ceaser Cipher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ciphers/hill-cipher.html">2. <strong>The Hill Cipher</strong></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">RSA Algorithm</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RSA-example.html">3. <strong>The RSA Algorithm</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>RSA with Larger Prime Numbers</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRSA-Algorithm/RSA-with-large-num.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/RSA-Algorithm/RSA-with-large-num.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>RSA with Larger Prime Numbers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-prime-number-function"><strong>Generate a Prime Number Function</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-5-digit-prime-numbers"><strong>The RSA algorithm on 5 digit prime numbers</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-10-digit-prime-numbers"><strong>The RSA algorithm on 10 digit prime numbers</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-15-digit-prime-numbers"><strong>The RSA algorithm on 15 digit prime numbers</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-18-digit-prime-numbers"><strong>The RSA algorithm on 18 digit prime numbers</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-19-digit-prime-numbers"><strong>The RSA algorithm on 19 digit prime numbers</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="rsa-with-larger-prime-numbers">
+<h1><strong>RSA with Larger Prime Numbers</strong><a class="headerlink" href="#rsa-with-larger-prime-numbers" title="Link to this heading">#</a></h1>
+<p>Extending on from the RSA Algorithm example, we will now use larger prime numbers to demonstrate the RSA algorithm and how the time taken to decrypt the message increases with the size of the prime numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">mod_inverse</span><span class="p">,</span> <span class="n">isprime</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="generate-a-prime-number-function">
+<h2><strong>Generate a Prime Number Function</strong><a class="headerlink" href="#generate-a-prime-number-function" title="Link to this heading">#</a></h2>
+<p>We will generate 2 function for this, the first is for randomly generating a prime number between a range we will define. The second function is for code reusability, this will print out all our outputs in a nice format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_prime</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">800000</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sympy</span><span class="o">.</span><span class="n">isprime</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">num</span>
+        
+<span class="k">def</span> <span class="nf">print_rsa_values</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">,</span> <span class="n">decrypted_message</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our original value of p and q were: </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our original value of n was: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our original value of e was: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our calculated value of totient_n was: </span><span class="si">{</span><span class="n">totient_n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our original message was: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our encrypted message was: </span><span class="si">{</span><span class="n">ciphertext</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our decrypted message was: </span><span class="si">{</span><span class="n">decrypted_message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Is the decrypted message the same as the original message? </span><span class="si">{</span><span class="n">message</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">decrypted_message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-rsa-algorithm-on-5-digit-prime-numbers">
+<h2><strong>The RSA algorithm on 5 digit prime numbers</strong><a class="headerlink" href="#the-rsa-algorithm-on-5-digit-prime-numbers" title="Link to this heading">#</a></h2>
+<p>Here the total time for generating the keys and encrypting/decrypting a message is shown. You can see that it takes a bit longer to generate the keys and encrypt/decrypt a message when using 5 digit prime numbers. With it being <span class="math notranslate nohighlight">\(40.1 μs\)</span> for the entire process.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">10427</span>
+<span class="n">q</span> <span class="o">=</span> <span class="mi">10663</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">message</span> <span class="o">=</span> <span class="mi">1234</span>
+
+<span class="n">totient_n</span> <span class="o">=</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">e</span> <span class="o">+=</span> <span class="mi">2</span>  <span class="c1"># Increment e until it&#39;s coprime with totient_n</span>
+    
+<span class="n">d</span> <span class="o">=</span> <span class="n">find_private_key</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="n">encrypt_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">decrypted_message</span> <span class="o">=</span> <span class="n">decrypt_message</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 36 μs, sys: 0 ns, total: 36 μs
+Wall time: 40.5 μs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_rsa_values</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">,</span> <span class="n">decrypted_message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our original value of p and q were: 10427 and 10663
+Our original value of n was: 111183101
+Our original value of e was: 17
+Our calculated value of totient_n was: 111162012
+Our original message was: 1234
+Our encrypted message was: 104710521
+Our decrypted message was: 1234
+Is the decrypted message the same as the original message? True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-rsa-algorithm-on-10-digit-prime-numbers">
+<h2><strong>The RSA algorithm on 10 digit prime numbers</strong><a class="headerlink" href="#the-rsa-algorithm-on-10-digit-prime-numbers" title="Link to this heading">#</a></h2>
+<p>Here the total time for generating the keys and encrypting/decrypting a message is shown. You can see that it takes a bit longer to generate the keys and encrypt/decrypt a message when using 10 digit prime numbers. With it now being <span class="math notranslate nohighlight">\(26.5~ms\)</span> for the entire process, a significant increase from the 5 digit prime numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">generate_prime</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">,</span> <span class="mi">8000000000</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">generate_prime</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">,</span> <span class="mi">8000000000</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">message</span> <span class="o">=</span> <span class="mi">123456789</span>
+
+<span class="n">totient_n</span> <span class="o">=</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">e</span> <span class="o">+=</span> <span class="mi">2</span>  <span class="c1"># Increment e until it&#39;s coprime with totient_n</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">find_private_key</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="n">encrypt_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">decrypted_message</span> <span class="o">=</span> <span class="n">decrypt_message</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 27.2 ms, sys: 0 ns, total: 27.2 ms
+Wall time: 26.5 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_rsa_values</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">,</span> <span class="n">decrypted_message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our original value of p and q were: 37201553 and 14549159
+Our original value of n was: 541251309643927
+Our original value of e was: 17
+Our calculated value of totient_n was: 541251257893216
+Our original message was: 123456789
+Our encrypted message was: 514680304925327
+Our decrypted message was: 123456789
+Is the decrypted message the same as the original message? True
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="the-rsa-algorithm-on-15-digit-prime-numbers">
+<h3><strong>The RSA algorithm on 15 digit prime numbers</strong><a class="headerlink" href="#the-rsa-algorithm-on-15-digit-prime-numbers" title="Link to this heading">#</a></h3>
+<p>Here the total time for generating the keys and encrypting/decrypting a message is shown. You can see that it takes longer to generate the keys and encrypt/decrypt a message when using 15 digit prime numbers. With it now being <span class="math notranslate nohighlight">\(4.7~s\)</span> for the entire process, which is a significant jump from 10 digit prime numbers and even more so from 5 digit prime numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">generate_prime</span><span class="p">(</span><span class="mi">100000000000000</span><span class="p">,</span> <span class="mi">900000000000000</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">generate_prime</span><span class="p">(</span><span class="mi">100000000000000</span><span class="p">,</span> <span class="mi">900000000000000</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">message</span> <span class="o">=</span> <span class="mi">123456789</span>
+
+<span class="n">totient_n</span> <span class="o">=</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">e</span> <span class="o">+=</span> <span class="mi">2</span>  <span class="c1"># Increment e until it&#39;s coprime with totient_n</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">find_private_key</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="n">encrypt_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">decrypted_message</span> <span class="o">=</span> <span class="n">decrypt_message</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.7 s, sys: 2 ms, total: 4.7 s
+Wall time: 4.71 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_rsa_values</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">,</span> <span class="n">decrypted_message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our original value of p and q were: 817140172394107 and 547754557755289
+Our original value of n was: 447592253753814692862971681923
+Our original value of e was: 17
+Our calculated value of totient_n was: 447592253753813327968241532528
+Our original message was: 123456789
+Our encrypted message was: 266981944652092286561115982209
+Our decrypted message was: 123456789
+Is the decrypted message the same as the original message? True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-rsa-algorithm-on-18-digit-prime-numbers">
+<h2><strong>The RSA algorithm on 18 digit prime numbers</strong><a class="headerlink" href="#the-rsa-algorithm-on-18-digit-prime-numbers" title="Link to this heading">#</a></h2>
+<p>Here the total time for generating the keys and encrypting/decrypting a message is shown. You can see that it takes longer to generate the keys and encrypt/decrypt a message when using 18 digit prime numbers. With it now being <span class="math notranslate nohighlight">\(1~min~48~s\)</span> for the entire process, which is a significant jump from 15 digit prime numbers and even more so from 10 digit prime numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">generate_prime</span><span class="p">(</span><span class="mi">100000000000000000</span><span class="p">,</span> <span class="mi">900000000000000000</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">generate_prime</span><span class="p">(</span><span class="mi">100000000000000000</span><span class="p">,</span> <span class="mi">900000000000000000</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">message</span> <span class="o">=</span> <span class="mi">123456789</span>
+
+<span class="n">totient_n</span> <span class="o">=</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">e</span> <span class="o">+=</span> <span class="mi">2</span>  <span class="c1"># Increment e until it&#39;s coprime with totient_n</span>
+    
+<span class="n">d</span> <span class="o">=</span> <span class="n">find_private_key</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="n">encrypt_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">decrypted_message</span> <span class="o">=</span> <span class="n">decrypt_message</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 48s, sys: 997 μs, total: 1min 48s
+Wall time: 1min 48s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_rsa_values</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">,</span> <span class="n">decrypted_message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our original value of p and q were: 415573428518459957 and 543966113095135777
+Our original value of n was: 226057862616805912578094787852581589
+Our original value of e was: 17
+Our calculated value of totient_n was: 226057862616805911618555246238985856
+Our original message was: 123456789
+Our encrypted message was: 160107104791976571231752716075044555
+Our decrypted message was: 123456789
+Is the decrypted message the same as the original message? True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="the-rsa-algorithm-on-19-digit-prime-numbers">
+<h2><strong>The RSA algorithm on 19 digit prime numbers</strong><a class="headerlink" href="#the-rsa-algorithm-on-19-digit-prime-numbers" title="Link to this heading">#</a></h2>
+<p>The final example shows the RSA algorithm on 19 digit prime numbers. Here the total time for generating the keys and encrypting/decrypting a message is shown. You can see that it takes longer to generate the keys and encrypt/decrypt a message when using 19 digit prime numbers. With it now being <span class="math notranslate nohighlight">\(~10~min~13~s\)</span> for the entire process, which is a significant jump from 18 digit prime numbers and even more so from 15 digit prime numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">generate_prime</span><span class="p">(</span><span class="mi">1000000000000000000</span><span class="p">,</span> <span class="mi">9000000000000000000</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">generate_prime</span><span class="p">(</span><span class="mi">1000000000000000000</span><span class="p">,</span> <span class="mi">9000000000000000000</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">message</span> <span class="o">=</span> <span class="mi">123456789</span>
+
+<span class="n">totient_n</span> <span class="o">=</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">euler_phi</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">e</span> <span class="o">+=</span> <span class="mi">2</span>  <span class="c1"># Increment e until it&#39;s coprime with totient_n</span>
+    
+<span class="n">d</span> <span class="o">=</span> <span class="n">find_private_key</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">)</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="n">encrypt_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">decrypted_message</span> <span class="o">=</span> <span class="n">decrypt_message</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10min 12s, sys: 92 ms, total: 10min 13s
+Wall time: 10min 13s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_rsa_values</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">totient_n</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">ciphertext</span><span class="p">,</span> <span class="n">decrypted_message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our original value of p and q were: 5187424496365756861 and 6896938881277935473
+Our original value of n was: 35777349702678600972672615955165030253
+Our original value of e was: 17
+Our calculated value of totient_n was: 35777349702678600960588252577521337920
+Our original message was: 123456789
+Our encrypted message was: 2177553986524605235606780047389748843
+Our decrypted message was: 123456789
+Is the decrypted message the same as the original message? True
+</pre></div>
+</div>
+</div>
+</div>
+<p>So as you can see, the RSA algorithm is incredibly powerful and secure, however, it can be slow to compute when using large prime numbers. This is why it’s important to use large prime numbers to ensure the security of the algorithm. The RSA algorithm often uses numbers that are hundreds of digits long to ensure that it’s secure.</p>
+<p>Although the RSA algorithm is secure, it’s important to note that it can be vulnerable to attacks such as the <strong>timing attack</strong> and the <strong>low exponent attack</strong>. This is why it’s important to use large prime numbers and to ensure that the public and private keys are kept secure.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./RSA-Algorithm"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="RSA-example.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span><strong>The RSA Algorithm</strong></p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-prime-number-function"><strong>Generate a Prime Number Function</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-5-digit-prime-numbers"><strong>The RSA algorithm on 5 digit prime numbers</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-10-digit-prime-numbers"><strong>The RSA algorithm on 10 digit prime numbers</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-15-digit-prime-numbers"><strong>The RSA algorithm on 15 digit prime numbers</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-18-digit-prime-numbers"><strong>The RSA algorithm on 18 digit prime numbers</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rsa-algorithm-on-19-digit-prime-numbers"><strong>The RSA algorithm on 19 digit prime numbers</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brianna Laird
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
