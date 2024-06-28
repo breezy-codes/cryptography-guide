@@ -9,6 +9,11 @@ parts:
     chapters:
       - file: ciphers/ceaser-cipher
       - file: ciphers/hill-cipher
+  - caption: RSA Algorithm
+    numbered: false
+    chapters:
+      - file: RSA-Algorithm/RSA-example
+      - file: RSA-Algorithm/RSA-with-large-num
 #  - caption: Number Theory
 #    numbered: false
 #    chapters:
