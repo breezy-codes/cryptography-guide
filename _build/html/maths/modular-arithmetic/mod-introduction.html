@@ -186,12 +186,13 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../number-theory/prime-num-intro.html">Prime Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../number-theory/prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
 
 </ul>
 </details></li>
@@ -262,18 +263,50 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-
+<span class="btn__text-container">Repository</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fmaths/modular-arithmetic/mod-introduction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
 
 
 
@@ -393,11 +426,66 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition"><strong>Modular Addition</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-subtraction"><strong>Modular Subtraction</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication"><strong>Modular Multiplication</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-inverse"><strong>Modular Inverse</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation"><strong>Modular Exponentiation</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition"><strong>Modular Addition</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-10-17-mod-7">Finding <span class="math notranslate nohighlight">\((10 + 17)~mod~7\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-203-17-mod-10">Finding <span class="math notranslate nohighlight">\((203 + 17)~mod~10\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-43-128-mod-26">Finding <span class="math notranslate nohighlight">\((-43 + 128)~mod~26\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-3028-220934-mod-85">Finding <span class="math notranslate nohighlight">\((3028 + 220934)~mod~85\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-subtraction"><strong>Modular Subtraction</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Finding <span class="math notranslate nohighlight">\((10 - 17)~mod~7\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-217-240-mod-19">Finding <span class="math notranslate nohighlight">\((217 - 240)~mod~19\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-2293-334-mod-38">Finding <span class="math notranslate nohighlight">\((2293 - 334)~mod~38\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication"><strong>Modular Multiplication</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-23-times-7-mod-26">Find <span class="math notranslate nohighlight">\((23 \times 7)~mod~26\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-182-times-39-mod-8">Finding <span class="math notranslate nohighlight">\((182 \times 39)~mod~8\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-123-times-291-mod-39">Finding <span class="math notranslate nohighlight">\((123 \times 291)~mod~39\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-inverse"><strong>Modular Inverse</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-euclidean-algorithm">Extended Euclidean Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-inverse-of-23-mod-26">Finding the modular inverse of <span class="math notranslate nohighlight">\(23~mod~26\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-function">Extending the Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-inverse-of-23-mod-49">Finding the modular inverse of <span class="math notranslate nohighlight">\(23~mod~49\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-inverse-of-20-mod-40">Finding the modular inverse of <span class="math notranslate nohighlight">\(20~mod~40\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation"><strong>Modular Exponentiation</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-perform-modular-exponentiation">Steps to Perform Modular Exponentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentiation-by-squaring">Exponentiation by Squaring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-of-exponentiation-by-squaring">Steps of Exponentiation by Squaring:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-11-13-mod-18">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(11^{13}~mod~18\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-283-4-mod-12">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(283^{4}~mod~12\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-38273-7-mod-24">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(38273^{7}~mod~24\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -433,7 +521,12 @@ a \equiv b \mod m
 <p>means that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> have the same remainder when divided by <span class="math notranslate nohighlight">\(m\)</span>.</p>
 <section id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -442,6 +535,7 @@ a \equiv b \mod m
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -519,7 +613,7 @@ a \equiv b \mod m
 </div>
 </div>
 </div>
-<div class="tip admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">Explanation</p>
 <p>To find the remainder when <span class="math notranslate nohighlight">\(170\)</span> is divided by <span class="math notranslate nohighlight">\(16\)</span>, follow these steps:</p>
 <ol class="arabic simple">
@@ -566,7 +660,7 @@ a \equiv b \mod m
 </div>
 </div>
 </div>
-<div class="tip admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">Explanation</p>
 <p>To find the remainder when 338 is divided by <span class="math notranslate nohighlight">\(12\)</span>, follow these steps:</p>
 <ol class="arabic simple">
@@ -613,7 +707,7 @@ a \equiv b \mod m
 </div>
 </div>
 </div>
-<div class="tip admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">Explanation</p>
 <p>To find the remainder when <span class="math notranslate nohighlight">\(90\)</span> is divided by <span class="math notranslate nohighlight">\(30\)</span>, follow these steps:</p>
 <ol class="arabic simple">
@@ -659,6 +753,246 @@ a \equiv b \mod m
 <li><p>Add the numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
 <li><p>Take the result and apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
 </ol>
+<section id="id1">
+<h2>Functions<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">modulus</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>Examples<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="finding-10-17-mod-7">
+<h3>Finding <span class="math notranslate nohighlight">\((10 + 17)~mod~7\)</span><a class="headerlink" href="#finding-10-17-mod-7" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 + 17 ≡ 6 (mod 7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 10 + 17 ) modulo ( 7 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the addition</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+10 + 17 = 27
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Compute the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+27 \div 7 = 3 \text{ remainder } 6
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+27 = 7 \times 3 + 6
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+27 \mod 7 = 6
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+10 + 17 \equiv 6 \mod 7
+\]</div>
+</div>
+</section>
+<section id="finding-203-17-mod-10">
+<h3>Finding <span class="math notranslate nohighlight">\((203 + 17)~mod~10\)</span><a class="headerlink" href="#finding-203-17-mod-10" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">203</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>203 + 17 ≡ 0 (mod 10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 203 + 17 ) modulo ( 10 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the addition</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+203 + 17 = 220
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Compute the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+220 \div 10 = 22 \text{ remainder } 0
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+220 = 10 \times 22 + 0
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+220 \mod 10 = 0
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+203 + 17 \equiv 0 \mod 10
+\]</div>
+</div>
+</section>
+<section id="finding-43-128-mod-26">
+<h3>Finding <span class="math notranslate nohighlight">\((-43 + 128)~mod~26\)</span><a class="headerlink" href="#finding-43-128-mod-26" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">43</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">26</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-43 + 128 ≡ 7 (mod 26)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( -43 + 128 ) modulo ( 26 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the addition</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+-43 + 128 = 85
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Compute the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+85 \div 26 = 3 \text{ remainder } 7
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+85 = 26 \times 3 + 7
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+85 \mod 26 = 7
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+-43 + 128 \equiv 7 \mod 26
+\]</div>
+</div>
+</section>
+<section id="finding-3028-220934-mod-85">
+<h3>Finding <span class="math notranslate nohighlight">\((3028 + 220934)~mod~85\)</span><a class="headerlink" href="#finding-3028-220934-mod-85" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3028</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">220934</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">85</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3028 + 220934 ≡ 72 (mod 85)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 3028 + 220934 ) modulo ( 85 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the addition</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+3028 + 220934 = 223962
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Compute the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+223962 \div 85 = 2634 \text{ remainder } 12
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+223962 = 85 \times 2634 + 12
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+223962 \mod 85 = 12
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+3028 + 220934 \equiv 12 \mod 85
+\]</div>
+</div>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="modular-subtraction">
 <h1><strong>Modular Subtraction</strong><a class="headerlink" href="#modular-subtraction" title="Link to this heading">#</a></h1>
@@ -674,6 +1008,175 @@ a \equiv b \mod m
 <li><p>If the result is negative, add the modulus <span class="math notranslate nohighlight">\(m\)</span> until the result is non-negative.</p></li>
 <li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
 </ol>
+<section id="id3">
+<h2>Functions<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_subtraction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">modulus</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>Examples<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h3>Finding <span class="math notranslate nohighlight">\((10 - 17)~mod~7\)</span><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_subtraction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 - 17 ≡ 0 (mod 7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 10 - 17 ) modulo ( 7 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the subtraction</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+10 - 17 = -7
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Adjust to ensure the result is within the range 0 to modulus-1</strong>:</p></li>
+</ol>
+<p>Since we have a negative result, we adjust it by adding the modulus until it becomes non-negative:</p>
+<div class="math notranslate nohighlight">
+\[
+-7 + 7 = 0
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>The adjusted result is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+10 - 17 \equiv 0 \mod 7
+\]</div>
+</div>
+</section>
+<section id="finding-217-240-mod-19">
+<h3>Finding <span class="math notranslate nohighlight">\((217 - 240)~mod~19\)</span><a class="headerlink" href="#finding-217-240-mod-19" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">217</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">240</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">19</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_subtraction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>217 - 240 ≡ 15 (mod 19)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 217 - 240 ) modulo ( 19 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the subtraction</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+217 - 240 = -23
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Adjust to ensure the result is within the range 0 to modulus-1</strong>:</p></li>
+</ol>
+<p>Since we have a negative result, we adjust it by adding the modulus until it becomes non-negative:</p>
+<div class="math notranslate nohighlight">
+\[
+-23 + 19 = -4
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Find the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<p>Now, calculate the remainder when ( -4 ) is divided by ( 19 ):</p>
+<div class="math notranslate nohighlight">
+\[
+-4 \mod 19 = 15
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+217 - 240 \equiv 15 \mod 19
+\]</div>
+</div>
+</section>
+<section id="finding-2293-334-mod-38">
+<h3>Finding <span class="math notranslate nohighlight">\((2293 - 334)~mod~38\)</span><a class="headerlink" href="#finding-2293-334-mod-38" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2293</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">334</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">38</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_subtraction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2293 - 334 ≡ 21 (mod 38)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 2293 - 334 ) modulo ( 38 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the subtraction</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+2293 - 334 = 1959
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Find the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<p>Now, calculate the remainder when ( 1959 ) is divided by ( 38 ):</p>
+<div class="math notranslate nohighlight">
+\[
+1959 \div 38 = 51 \text{ remainder } 21
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+1959 = 38 \times 51 + 21
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+1959 \mod 38 = 21
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+2293 - 334 \equiv 21 \mod 38
+\]</div>
+</div>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="modular-multiplication">
 <h1><strong>Modular Multiplication</strong><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h1>
@@ -688,6 +1191,193 @@ a \equiv b \mod m
 <li><p>Multiply the numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
 <li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
 </ol>
+<section id="id6">
+<h2>Functions<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">modulus</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h2>Examples<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="find-23-times-7-mod-26">
+<h3>Find <span class="math notranslate nohighlight">\((23 \times 7)~mod~26\)</span><a class="headerlink" href="#find-23-times-7-mod-26" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">26</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23 * 7 ≡ 5 (mod 26)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 23 \times 7 ) modulo ( 26 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the multiplication</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+23 \times 7 = 161
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Find the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<p>Now, calculate the remainder when ( 161 ) is divided by ( 26 ):</p>
+<div class="math notranslate nohighlight">
+\[
+161 \div 26 = 6 \text{ remainder } 5
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+161 = 26 \times 6 + 5
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+161 \mod 26 = 5
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+23 \times 7 \equiv 5 \mod 26
+\]</div>
+</div>
+</section>
+<section id="finding-182-times-39-mod-8">
+<h3>Finding <span class="math notranslate nohighlight">\((182 \times 39)~mod~8\)</span><a class="headerlink" href="#finding-182-times-39-mod-8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">182</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">39</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>182 * 39 ≡ 2 (mod 8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 182 \times 39 ) modulo ( 8 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the multiplication</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+182 \times 39 = 7104
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Find the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<p>Now, calculate the remainder when ( 7104 ) is divided by ( 8 ):</p>
+<div class="math notranslate nohighlight">
+\[
+7104 \div 8 = 888 \text{ remainder } 0
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+7104 = 8 \times 888 + 0
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+7104 \mod 8 = 0
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+182 \times 39 \equiv 0 \mod 8
+\]</div>
+</div>
+</section>
+<section id="finding-123-times-291-mod-39">
+<h3>Finding <span class="math notranslate nohighlight">\((123 \times 291)~mod~39\)</span><a class="headerlink" href="#finding-123-times-291-mod-39" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">291</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">39</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123 * 291 ≡ 30 (mod 39)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 123 \times 291 ) modulo ( 39 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the multiplication</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+123 \times 291 = 35853
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Find the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<p>Now, calculate the remainder when ( 35853 ) is divided by ( 39 ):</p>
+<div class="math notranslate nohighlight">
+\[
+35853 \div 39 = 919 \text{ remainder } 32
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+35853 = 39 \times 919 + 32
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+35853 \mod 39 = 32
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+123 \times 291 \equiv 32 \mod 39
+\]</div>
+</div>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="modular-inverse">
 <h1><strong>Modular Inverse</strong><a class="headerlink" href="#modular-inverse" title="Link to this heading">#</a></h1>
@@ -698,20 +1388,431 @@ a \times x \equiv 1 \mod m
 \]</div>
 <p>The modular inverse exists if and only if <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(m\)</span> are coprime (i.e., <span class="math notranslate nohighlight">\(\text{gcd}(a, m) = 1\)</span>).</p>
 <p>To find the modular inverse of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>, you can use the Extended Euclidean Algorithm.</p>
+<section id="extended-euclidean-algorithm">
+<h2>Extended Euclidean Algorithm<a class="headerlink" href="#extended-euclidean-algorithm" title="Link to this heading">#</a></h2>
+<p>The Euclidean Algorithm is a method to find the greatest common divisor (gcd) of two integers. The Extended Euclidean Algorithm extends this to find the coefficients <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that:</p>
+<div class="math notranslate nohighlight">
+\[ a \times x + b \times y = \text{gcd}(a, b) \]</div>
+<p>These coefficients <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> can be used to express the gcd as a linear combination of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</section>
+<section id="id8">
+<h2>Functions<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_inverse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extended_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+        <span class="n">gcd</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">//</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">x1</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">x1</span>
+        <span class="k">return</span> <span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+    
+    <span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">gcd</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inverse does not exist for </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> modulo </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="n">modulus</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inverse of </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h2>Examples<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<section id="finding-the-modular-inverse-of-23-mod-26">
+<h3>Finding the modular inverse of <span class="math notranslate nohighlight">\(23~mod~26\)</span><a class="headerlink" href="#finding-the-modular-inverse-of-23-mod-26" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">26</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_inverse</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inverse of 23 ≡ 17 (mod 26)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Modular Inverse Calculation</p>
+<p>To find the modular inverse of 23 mod 26, follow these steps using the Extended Euclidean Algorithm:</p>
+<ol class="arabic">
+<li><p><strong>Initialisation</strong>:
+Set initial values:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{gcd} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y = 1\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Step-by-Step Calculation</strong>:</p>
+<p><strong>Step 0</strong>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{gcd} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y = 1\)</span></p></li>
+</ul>
+<p><strong>Step 1</strong>:</p>
+<ul class="simple">
+<li><p>Update values based on the Euclidean algorithm:</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{gcd} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y = 0\)</span></p></li>
+</ul>
+<p><strong>Step 2</strong>:</p>
+<ul class="simple">
+<li><p>Continue updating:</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{gcd} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x = -1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y = 1\)</span></p></li>
+</ul>
+<p><strong>Step 3</strong>:</p>
+<ul class="simple">
+<li><p>Further updates:</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{gcd} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x = 8\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y = -1\)</span></p></li>
+</ul>
+<p><strong>Step 4</strong>:</p>
+<ul class="simple">
+<li><p>Final updates:</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{gcd} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x = -9\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y = 8\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Result</strong>:</p>
+<ul class="simple">
+<li><p>Since the <span class="math notranslate nohighlight">\(\text{gcd}\)</span> remains 1 throughout, 23 has an inverse modulo 26.</p></li>
+<li><p>The final value of <span class="math notranslate nohighlight">\(x\)</span> after adjustments for modular arithmetic (as <span class="math notranslate nohighlight">\(-9 \equiv 17 \ (\text{mod}\ 26)\)</span>) gives the modular inverse.</p></li>
+<li><p>Thus, the inverse of 23 modulo 26 is 17.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="extending-the-function">
+<h2>Extending the Function<a class="headerlink" href="#extending-the-function" title="Link to this heading">#</a></h2>
+<p>As modular inverse is a step up from the simple addition or subtraction operations in modular arithmetic; we can actually extend the function further to output the steps for using the Extended Euclidean Algorithm to find the modular inverse. This can be useful for understanding the steps, you can also use this to check your work for practicing the algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_inverse_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extended_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">steps</span>
+        <span class="n">gcd</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">prev_steps</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">//</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">x1</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">x1</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="n">prev_steps</span> <span class="o">+</span> <span class="p">[(</span><span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">steps</span>
+
+    <span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">steps</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">gcd</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inverse does not exist for </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> modulo </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="n">modulus</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Steps to find the modular inverse of </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Step </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: gcd = </span><span class="si">{</span><span class="n">gcd</span><span class="si">}</span><span class="s2">, x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y = </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inverse of </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_inverse_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steps to find the modular inverse of 11 mod 30:
+Step 0: gcd = 1, x = 0, y = 1
+Step 1: gcd = 1, x = 1, y = 0
+Step 2: gcd = 1, x = -1, y = 1
+Step 3: gcd = 1, x = 3, y = -1
+Step 4: gcd = 1, x = -4, y = 3
+Step 5: gcd = 1, x = 11, y = -4
+Inverse of 11 ≡ 11 (mod 30)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="finding-the-modular-inverse-of-23-mod-49">
+<h3>Finding the modular inverse of <span class="math notranslate nohighlight">\(23~mod~49\)</span><a class="headerlink" href="#finding-the-modular-inverse-of-23-mod-49" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">49</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_inverse_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steps to find the modular inverse of 23 mod 49:
+Step 0: gcd = 1, x = 0, y = 1
+Step 1: gcd = 1, x = 1, y = 0
+Step 2: gcd = 1, x = -1, y = 1
+Step 3: gcd = 1, x = 8, y = -1
+Step 4: gcd = 1, x = -17, y = 8
+Inverse of 23 ≡ 32 (mod 49)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-the-modular-inverse-of-20-mod-40">
+<h3>Finding the modular inverse of <span class="math notranslate nohighlight">\(20~mod~40\)</span><a class="headerlink" href="#finding-the-modular-inverse-of-20-mod-40" title="Link to this heading">#</a></h3>
+<p>In the following example you’ll see what occurs when the modular inverse doesn’t exist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_inverse_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">modulus</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">result</span> <span class="o">=</span> <span class="n">modular_inverse_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+
+<span class="nn">Cell In[21], line 15,</span> in <span class="ni">modular_inverse_steps</span><span class="nt">(a, modulus)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">steps</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">if</span> <span class="n">gcd</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">15</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inverse does not exist for </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> modulo </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="n">modulus</span>
+
+<span class="ne">ValueError</span>: Inverse does not exist for 20 modulo 40
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="modular-exponentiation">
 <h1><strong>Modular Exponentiation</strong><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h1>
-<p>Modular exponentiation involves raising a number to an exponent and then taking the remainder when the result is divided by the modulus.</p>
+<p>Modular exponentiation involves raising a number to an exponent and then taking the remainder when the result is divided by the modulus. This operation is commonly used in fields such as cryptography.</p>
 <p>The formula for modular exponentiation of a number <span class="math notranslate nohighlight">\(a\)</span> raised to an exponent <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
 <div class="math notranslate nohighlight">
-\[
-a^b \mod m
-\]</div>
-<p>Steps:</p>
+\[a^b~\mod~m\]</div>
+<section id="steps-to-perform-modular-exponentiation">
+<h2>Steps to Perform Modular Exponentiation<a class="headerlink" href="#steps-to-perform-modular-exponentiation" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Compute the power <span class="math notranslate nohighlight">\(a^b\)</span>.</p></li>
-<li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
+<li><p><strong>Compute the Power <span class="math notranslate nohighlight">\(a^b\)</span>:</strong>
+Calculate the power of the base <span class="math notranslate nohighlight">\(a\)</span> raised to the exponent <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
+<li><p><strong>Apply the Modulus <span class="math notranslate nohighlight">\(m\)</span>:</strong>
+After computing <span class="math notranslate nohighlight">\(a^b\)</span>, take the remainder when the result is divided by the modulus <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
 </ol>
+<p>However, computing <span class="math notranslate nohighlight">\(a^b\)</span> directly for large <span class="math notranslate nohighlight">\(b\)</span> can be computationally expensive and may result in very large intermediate results. Instead, we use an efficient method called <strong>Exponentiation by Squaring</strong> to perform modular exponentiation.</p>
+<section id="exponentiation-by-squaring">
+<h3>Exponentiation by Squaring<a class="headerlink" href="#exponentiation-by-squaring" title="Link to this heading">#</a></h3>
+<p>Exponentiation by Squaring is an efficient algorithm to compute <span class="math notranslate nohighlight">\(a^b \mod m\)</span>. It works by breaking down the exponentiation process into a series of squaring and multiplication steps, reducing the overall number of operations.</p>
+</section>
+<section id="steps-of-exponentiation-by-squaring">
+<h3>Steps of Exponentiation by Squaring:<a class="headerlink" href="#steps-of-exponentiation-by-squaring" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Initialisation:</strong>
+Set the result to 1 and the base to <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
+<li><p><strong>Iterate through the bits of the exponent <span class="math notranslate nohighlight">\(b\)</span>:</strong></p>
+<ul class="simple">
+<li><p>If the current bit is 1, multiply the result by the current base.</p></li>
+<li><p>Square the base for the next iteration.</p></li>
+</ul>
+</li>
+<li><p><strong>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> at each step:</strong>
+Take the remainder of both the result and the base with <span class="math notranslate nohighlight">\(m\)</span> to keep the numbers manageable.</p></li>
+</ol>
+</section>
+</section>
+<section id="id10">
+<h2>Functions<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<p>This time we will make two functions from the get go, one to initially show how to get the result, and one that can give you the steps for the Exponentiation by Squaring method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_exponentiation</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">exponent</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_exponentiation_steps</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">base</span> <span class="o">%</span> <span class="n">modulus</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="n">exponent</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">exponent</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span> <span class="o">*</span> <span class="n">base</span><span class="p">)</span> <span class="o">%</span> <span class="n">modulus</span>
+            <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result updated to </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> after multiplying by base </span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">base</span> <span class="o">*</span> <span class="n">base</span><span class="p">)</span> <span class="o">%</span> <span class="n">modulus</span>
+        <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Base squared and reduced modulo </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">exponent</span> <span class="o">=</span> <span class="n">exponent</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exponent shifted right: </span><span class="si">{</span><span class="n">exponent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Steps of computation:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">exponent</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id11">
+<h2>Examples<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<section id="finding-the-modular-exponentiation-of-11-13-mod-18">
+<h3>Finding the modular exponentiation of <span class="math notranslate nohighlight">\(11^{13}~mod~18\)</span><a class="headerlink" href="#finding-the-modular-exponentiation-of-11-13-mod-18" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">exponent</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11^13 ≡ 11 (mod 18)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steps of computation:
+Result updated to 11 after multiplying by base 11
+Base squared and reduced modulo 18: 13
+Exponent shifted right: 6
+Base squared and reduced modulo 18: 7
+Exponent shifted right: 3
+Result updated to 5 after multiplying by base 7
+Base squared and reduced modulo 18: 13
+Exponent shifted right: 1
+Result updated to 11 after multiplying by base 13
+Base squared and reduced modulo 18: 7
+Exponent shifted right: 0
+7^0 ≡ 11 (mod 18)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-the-modular-exponentiation-of-283-4-mod-12">
+<h3>Finding the modular exponentiation of <span class="math notranslate nohighlight">\(283^{4}~mod~12\)</span><a class="headerlink" href="#finding-the-modular-exponentiation-of-283-4-mod-12" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">283</span>
+<span class="n">exponent</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>283^4 ≡ 1 (mod 12)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steps of computation:
+Base squared and reduced modulo 12: 1
+Exponent shifted right: 2
+Base squared and reduced modulo 12: 1
+Exponent shifted right: 1
+Result updated to 1 after multiplying by base 1
+Base squared and reduced modulo 12: 1
+Exponent shifted right: 0
+1^0 ≡ 1 (mod 12)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-the-modular-exponentiation-of-38273-7-mod-24">
+<h3>Finding the modular exponentiation of <span class="math notranslate nohighlight">\(38273^{7}~mod~24\)</span><a class="headerlink" href="#finding-the-modular-exponentiation-of-38273-7-mod-24" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">38273</span>
+<span class="n">exponent</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">24</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>38273^7 ≡ 17 (mod 24)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steps of computation:
+Result updated to 17 after multiplying by base 17
+Base squared and reduced modulo 24: 1
+Exponent shifted right: 3
+Result updated to 17 after multiplying by base 1
+Base squared and reduced modulo 24: 1
+Exponent shifted right: 1
+Result updated to 17 after multiplying by base 1
+Base squared and reduced modulo 24: 1
+Exponent shifted right: 0
+1^0 ≡ 17 (mod 24)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -789,11 +1890,66 @@ a^b \mod m
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition"><strong>Modular Addition</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-subtraction"><strong>Modular Subtraction</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication"><strong>Modular Multiplication</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-inverse"><strong>Modular Inverse</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation"><strong>Modular Exponentiation</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition"><strong>Modular Addition</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-10-17-mod-7">Finding <span class="math notranslate nohighlight">\((10 + 17)~mod~7\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-203-17-mod-10">Finding <span class="math notranslate nohighlight">\((203 + 17)~mod~10\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-43-128-mod-26">Finding <span class="math notranslate nohighlight">\((-43 + 128)~mod~26\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-3028-220934-mod-85">Finding <span class="math notranslate nohighlight">\((3028 + 220934)~mod~85\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-subtraction"><strong>Modular Subtraction</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Finding <span class="math notranslate nohighlight">\((10 - 17)~mod~7\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-217-240-mod-19">Finding <span class="math notranslate nohighlight">\((217 - 240)~mod~19\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-2293-334-mod-38">Finding <span class="math notranslate nohighlight">\((2293 - 334)~mod~38\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication"><strong>Modular Multiplication</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-23-times-7-mod-26">Find <span class="math notranslate nohighlight">\((23 \times 7)~mod~26\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-182-times-39-mod-8">Finding <span class="math notranslate nohighlight">\((182 \times 39)~mod~8\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-123-times-291-mod-39">Finding <span class="math notranslate nohighlight">\((123 \times 291)~mod~39\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-inverse"><strong>Modular Inverse</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-euclidean-algorithm">Extended Euclidean Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-inverse-of-23-mod-26">Finding the modular inverse of <span class="math notranslate nohighlight">\(23~mod~26\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-function">Extending the Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-inverse-of-23-mod-49">Finding the modular inverse of <span class="math notranslate nohighlight">\(23~mod~49\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-inverse-of-20-mod-40">Finding the modular inverse of <span class="math notranslate nohighlight">\(20~mod~40\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation"><strong>Modular Exponentiation</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-perform-modular-exponentiation">Steps to Perform Modular Exponentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentiation-by-squaring">Exponentiation by Squaring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-of-exponentiation-by-squaring">Steps of Exponentiation by Squaring:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-11-13-mod-18">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(11^{13}~mod~18\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-283-4-mod-12">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(283^{4}~mod~12\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-38273-7-mod-24">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(38273^{7}~mod~24\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
   </nav></div>

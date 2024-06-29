@@ -186,12 +186,13 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../maths/number-theory/prime-num-intro.html">Prime Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../maths/cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
 
 </ul>
 </details></li>
@@ -262,18 +263,50 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-
+<span class="btn__text-container">Repository</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fciphers/ceaser-cipher.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
 
 
 
@@ -403,7 +436,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-ceaser-cipher">
 <h1>The Ceaser Cipher<a class="headerlink" href="#the-ceaser-cipher" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
 <p>The Caesar cipher is a type of substitution cipher in which each letter in the plaintext is shifted a certain number of places down the alphabet. For example, with a shift of <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(A\)</span> would be replaced by <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(B\)</span> would become <span class="math notranslate nohighlight">\(C\)</span>, and so on. The method is named after Julius Caesar, who used it to communicate with his officials.</p>
 <ul class="simple">
 <li><p>The encryption can be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme: <span class="math notranslate nohighlight">\(A = 0\)</span>, <span class="math notranslate nohighlight">\(B = 1\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span>, <span class="math notranslate nohighlight">\(Z = 25\)</span>.</p></li>
@@ -413,9 +445,17 @@ document.write(`
 \[
 E(x) = (x + k) \mod 26
 \]</div>
-<p>To explain this further, let’s break down the process:</p>
+<div class="proof algorithm admonition" id="alg-caesar-input">
+<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Caesar Cipher Input)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Input:</strong></p>
+<ul class="simple">
+<li><p>Plaintext message <span class="math notranslate nohighlight">\(M\)</span>.</p></li>
+<li><p>Shift value <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+</ul>
+<p><strong>Transformation of Letters to Numbers</strong></p>
 <ol class="arabic">
-<li><p><strong>Transformation of Letters to Numbers</strong>:</p>
+<li><p><strong>Assign Numbers to Letters:</strong></p>
 <ul class="simple">
 <li><p>Each letter in the alphabet is assigned a number:</p></li>
 </ul>
@@ -429,45 +469,98 @@ E(x) = (x + k) \mod 26
     \end{aligned}
     \end{split}\]</div>
 </li>
-<li><p><strong>Mathematical Representation of Encryption</strong>:</p>
-<ul>
-<li><p>Given a plaintext letter <span class="math notranslate nohighlight">\(x\)</span> (where <span class="math notranslate nohighlight">\(x\)</span> is its corresponding number), and a shift <span class="math notranslate nohighlight">\(k\)</span>, the encryption function <span class="math notranslate nohighlight">\(E(x)\)</span> shifts the letter <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(k\)</span> positions down the alphabet. This is done using modular arithmetic to ensure the result wraps around if it exceeds 25. The encryption function is:</p>
+</ol>
+</section>
+</div><div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p><strong>Transformation of Letters to Numbers:</strong></p>
+<ul class="simple">
+<li><p>The first step in both encryption and decryption is to convert letters into numbers. Each letter is assigned a number from 0 to 25 (A=0, B=1, …, Z=25).</p></li>
+</ul>
+</div>
+<div class="proof algorithm admonition" id="alg-caesar-encryption">
+<p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Caesar Cipher Encryption)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Encryption Process</strong></p>
+<ul class="simple">
+<li><p>Given a plaintext letter <span class="math notranslate nohighlight">\(x\)</span> (where <span class="math notranslate nohighlight">\(x\)</span> is its corresponding number), and a shift <span class="math notranslate nohighlight">\(k\)</span>, the encryption function <span class="math notranslate nohighlight">\(E(x)\)</span> shifts the letter <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(k\)</span> positions down the alphabet:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[E(x) = (x + k) \mod 26\]</div>
-</li>
-<li><p>For example, if <span class="math notranslate nohighlight">\(x = 0\)</span> (which corresponds to <span class="math notranslate nohighlight">\(A\)</span>) and <span class="math notranslate nohighlight">\(k = 3\)</span>, then:</p>
+\[
+E(x) = (x + k) \mod 26
+\]</div>
+<ul class="simple">
+<li><p>Example: If <span class="math notranslate nohighlight">\(x = 0\)</span> (corresponding to <span class="math notranslate nohighlight">\(A\)</span>) and <span class="math notranslate nohighlight">\(k = 3\)</span>, then:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[E(0) = (0 + 3) \mod 26 = 3\]</div>
-</li>
+\[
+E(0) = (0 + 3) \mod 26 = 3
+\]</div>
+<ul class="simple">
 <li><p>The number 3 corresponds to the letter <span class="math notranslate nohighlight">\(D\)</span>, so <span class="math notranslate nohighlight">\(A\)</span> encrypted with a shift of 3 becomes <span class="math notranslate nohighlight">\(D\)</span>.</p></li>
 </ul>
-</li>
-<li><p><strong>Decryption</strong>:</p>
-<ul>
-<li><p>Decryption is the reverse process. If a letter <span class="math notranslate nohighlight">\(y\)</span> (which is the encrypted letter) is received, and we know the shift <span class="math notranslate nohighlight">\(k\)</span>, we can find the original letter <span class="math notranslate nohighlight">\(x\)</span> using:</p>
+</section>
+</div><div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p><strong>Encryption Process:</strong></p>
+<ul class="simple">
+<li><p>Given a plaintext letter <span class="math notranslate nohighlight">\(x\)</span> (represented as a number) and a shift <span class="math notranslate nohighlight">\(k\)</span>, the encryption function <span class="math notranslate nohighlight">\(E(x)\)</span> shifts the letter <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(k\)</span> positions down the alphabet. This is expressed mathematically as:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[D(y) = (y - k) \mod 26\]</div>
-</li>
-<li><p>For example, if <span class="math notranslate nohighlight">\(y = 3\)</span> (which corresponds to <span class="math notranslate nohighlight">\(D\)</span>) and <span class="math notranslate nohighlight">\(k = 3\)</span>, then:</p>
+\[
+E(x) = (x + k) \mod 26
+\]</div>
+<ul class="simple">
+<li><p>Example: If we want to encrypt the letter ‘A’ (x=0) with a shift of 3 (k=3), the calculation would be:
+$<span class="math notranslate nohighlight">\(
+E(0) = (0 + 3) \mod 26 = 3
+\)</span>$</p></li>
+<li><p>The result, 3, corresponds to the letter ‘D’. Therefore, ‘A’ encrypted with a shift of 3 becomes ‘D’.</p></li>
+</ul>
+</div>
+<div class="proof algorithm admonition" id="alg-caesar-decryption">
+<p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Caesar Cipher Decryption)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Decryption Process</strong></p>
+<ul class="simple">
+<li><p>To decrypt a letter <span class="math notranslate nohighlight">\(y\)</span> (the encrypted letter) with a known shift <span class="math notranslate nohighlight">\(k\)</span>, the decryption function <span class="math notranslate nohighlight">\(D(y)\)</span> shifts the letter <span class="math notranslate nohighlight">\(y\)</span> back by <span class="math notranslate nohighlight">\(k\)</span> positions up the alphabet:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[D(3) = (3 - 3) \mod 26 = 0\]</div>
-</li>
+\[
+D(y) = (y - k) \mod 26
+\]</div>
+<ul class="simple">
+<li><p>Example: If <span class="math notranslate nohighlight">\(y = 3\)</span> (corresponding to <span class="math notranslate nohighlight">\(D\)</span>) and <span class="math notranslate nohighlight">\(k = 3\)</span>, then:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+D(3) = (3 - 3) \mod 26 = 0
+\]</div>
+<ul class="simple">
 <li><p>The number 0 corresponds to the letter <span class="math notranslate nohighlight">\(A\)</span>, so <span class="math notranslate nohighlight">\(D\)</span> decrypted with a shift of 3 becomes <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
 </ul>
-</li>
-</ol>
-<p>The Caesar cipher is very easy to break and is not secure. Julius Caesar, according to Suetonius, used it with a shift of three to protect messages of military significance. It is still used in the ROT13 algorithm, which is a simple method of obfuscating text.</p>
-<p>The encryption and decryption processes can be expressed as:</p>
+</section>
+</div><div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p><strong>Decryption Process:</strong></p>
+<ul class="simple">
+<li><p>To decrypt a letter <span class="math notranslate nohighlight">\(y\)</span> (represented as a number) with a known shift <span class="math notranslate nohighlight">\(k\)</span>, the decryption function <span class="math notranslate nohighlight">\(D(y)\)</span> shifts the letter <span class="math notranslate nohighlight">\(y\)</span> back by <span class="math notranslate nohighlight">\(k\)</span> positions up the alphabet. This is expressed mathematically as:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{aligned}
-E(x) &amp; = (x + k) \mod 26 \\
-D(y) &amp; = (y - k) \mod 26
-\end{aligned}
-\end{split}\]</div>
+\[
+D(y) = (y - k) \mod 26
+\]</div>
+<ul class="simple">
+<li><p>Example: If we want to decrypt the letter ‘D’ (y=3) with a shift of 3 (k=3), the calculation would be:
+$<span class="math notranslate nohighlight">\(
+D(3) = (3 - 3) \mod 26 = 0
+\)</span>$</p></li>
+<li><p>The result, 0, corresponds to the letter ‘A’. Therefore, ‘D’ decrypted with a shift of 3 becomes ‘A’.</p></li>
+</ul>
+</div>
+<p>The Caesar cipher is easy to understand and implement but is also easy to break. It’s named after Julius Caesar, who used it for military communication. Despite its simplicity, it demonstrates the basic principles of substitution ciphers and modular arithmetic.</p>
 <section id="ceaser-cipher-algorithm">
 <h2><strong>Ceaser Cipher Algorithm</strong><a class="headerlink" href="#ceaser-cipher-algorithm" title="Link to this heading">#</a></h2>
-<hr class="docutils" />
 <p>The following functions are used in the algorithm:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ceaser_cipher_encrypt</span></code>: Encrypts the given text using the Caesar cipher with the specified shift value.</p></li>
@@ -475,13 +568,19 @@ D(y) &amp; = (y - k) \mod 26
 <li><p><code class="docutils literal notranslate"><span class="pre">ceaser_cipher_brute_force</span></code>: Brute forces the Caesar cipher by decrypting the given text for all possible shift values.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ceaser_cipher</span></code>: Runs the calculation for the Caesar cipher algorithm and outputs the encrypted and decrypted text.</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">faker</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -556,7 +655,7 @@ Decrypted Message: Hello World!
 </div>
 </div>
 </div>
-<div class="tip admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">Explanation of the Shift</p>
 <p>Given a shift of <span class="math notranslate nohighlight">\(22\)</span>, let’s see how the encryption and decryption work mathematically.</p>
 <p><strong>Encryption:</strong>
@@ -607,7 +706,7 @@ Decrypted Message: Hello World!
 </div>
 </div>
 </div>
-<div class="tip admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">Explanation of the Shift</p>
 <p>Given a shift of <span class="math notranslate nohighlight">\(10\)</span>, let’s see how the encryption and decryption work mathematically.</p>
 <p><strong>Encryption:</strong>
@@ -641,7 +740,7 @@ D(14) = (14 - 10) \mod 26 = 4 \mod 26 = 4
 </section>
 <section id="brute-force-attack-on-the-cipher">
 <h3>Brute Force Attack on the Cipher<a class="headerlink" href="#brute-force-attack-on-the-cipher" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ciphertext</span> <span class="o">=</span> <span class="s2">&quot;Khoor Zruog!&quot;</span>
 <span class="n">ceaser_cipher_brute_force</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span>
@@ -716,7 +815,7 @@ Father second country social west partner maintain. Huge your song prove.
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_scroll-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plaintext</span> <span class="o">=</span> <span class="n">random_message</span><span class="p">()</span>
 <span class="n">ciphertext</span> <span class="o">=</span> <span class="n">caesar_cipher_encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">shift</span><span class="p">)</span>

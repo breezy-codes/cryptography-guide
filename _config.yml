@@ -29,7 +29,7 @@ repository:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   favicon: "favicon.png"  # A path to a favicon image
-  use_issues_button: false
+  use_issues_button: true
   use_repository_button: true
 
 sphinx:

@@ -9,12 +9,13 @@ parts:
     chapters:
       - file: maths/number-theory/prime-num-intro
         sections:
+          - file: maths/cheat-sheet.md
           - file: maths/number-theory/prime-numbers
           - file: maths/number-theory/fermats-little-theorem
           - file: maths/number-theory/finding-coprimes
           - file: maths/number-theory/prime-factorisation
           - file: maths/number-theory/gcd-lcm
-          - file: maths/number-theory/prim-introduction
+          - file: maths/number-theory/prime-introduction
       - file: maths/modular-arithmetic/mod-arith-intro
         sections:
           - file: maths/modular-arithmetic/modular-arithmetic

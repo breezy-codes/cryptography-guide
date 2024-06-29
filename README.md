@@ -4,6 +4,7 @@ Welcome to my Cryptography Projects project! This is where I will be sharing all
 
 My passion for cryptography started in my first semester of university in Discrete Mathematics, where I wrote a HD report on the RSA algorith, DHKE algorithm and ECC. This continued into my second semester in my Cryptography subject, where I wrote a HD report on Quantum Cryptography and the Shor's algorithm. Both of these reports were featured in the **[Deakin Maths Yearbook 2023](https://nla.gov.au/nla.obj-3336557334/view)**. I have since been exploring different cryptographic algorithms and concepts, and I'm excited to share my findings with you.
 
+Access the handy maths symbol cheat sheet to help with covering these topics here: [Cheat Sheet](./maths/cheat-sheet.md)
 
 ## About This Project
 
@@ -23,7 +24,7 @@ Here are some of the topics I have covered or intend to cover in this  project:
 
 ## How to Use This Project
 
-You can browse the project, or download the GitHub repository and run the Jupyter notebooks on your local machine. Each notebook is self-contained and can be read independently, but I recommend starting with the introductory notebooks if you are new to cryptography. Feel free to explore the topics that interest you the most, and don't hesitate to reach out if you have any questions or feedback.
+Each page on the website is it's own notebook file, you can explore each on the website or download and run the notebooks on your local machine. Feel free to explore the topics that interest you the most, and don't hesitate to reach out if you have any questions or feedback.
 
 ### To Download the github repository:
 

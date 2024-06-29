@@ -64,7 +64,7 @@
     <link rel="icon" href="../../_static/favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Prime Numbers" href="prime-numbers.html" />
+    <link rel="next" title="Symbol Cheat Sheet" href="../cheat-sheet.html" />
     <link rel="prev" title="Welcome to the World of Cryptography!" href="../../README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -186,12 +186,13 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Prime Numbers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
 
 </ul>
 </details></li>
@@ -262,18 +263,50 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-
+<span class="btn__text-container">Repository</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fmaths/number-theory/prime-num-intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
 
 
 
@@ -383,10 +416,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-prime-numbers">Introduction to Prime Numbers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">For example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">For Example:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-prime-numbers">Properties of Prime Numbers</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics-covered">Topics Covered</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-prime-numbers">Why Study Prime Numbers?</a></li>
 </ul>
             </nav>
         </div>
@@ -400,37 +435,56 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="prime-numbers">
 <h1>Prime Numbers<a class="headerlink" href="#prime-numbers" title="Link to this heading">#</a></h1>
-<p>In this section, you will find detailed explanations and examples on various topics related to prime numbers, including their properties, how to find coprime numbers, prime factorisation, the greatest common divisor (GCD), and the least common multiple (LCM).</p>
+<p>Welcome to the Prime Numbers section! Here, you will find detailed explanations and examples on various topics related to prime numbers, including their properties, how to find coprime numbers, prime factorisation, the greatest common divisor (GCD), and the least common multiple (LCM).</p>
+<p>Access the handy maths symbol cheat sheet to help with covering these topics here: <a class="reference internal" href="../cheat-sheet.html"><span class="std std-doc">Cheat Sheet</span></a></p>
 <section id="introduction-to-prime-numbers">
 <h2>Introduction to Prime Numbers<a class="headerlink" href="#introduction-to-prime-numbers" title="Link to this heading">#</a></h2>
-<p>Prime numbers are natural numbers greater than <span class="math notranslate nohighlight">\(1\)</span> that have no positive divisors other than <span class="math notranslate nohighlight">\(1\)</span> and themselves. In other words, a prime number is a number that cannot be formed by multiplying two smaller natural numbers.</p>
+<p>Prime numbers are natural numbers greater than <span class="math notranslate nohighlight">\(1\)</span> that have no positive divisors other than <span class="math notranslate nohighlight">\(1\)</span> and themselves. In simpler terms, a prime number is a number that cannot be formed by multiplying two smaller natural numbers.</p>
 <section id="for-example">
-<h3>For example:<a class="headerlink" href="#for-example" title="Link to this heading">#</a></h3>
+<h3>For Example:<a class="headerlink" href="#for-example" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(2\)</span> is a prime number because its only divisors are <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(3\)</span> is a prime number because its only divisors are <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(3\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(4\)</span> is not a prime number because it can be divided by <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, and <span class="math notranslate nohighlight">\(4\)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(2\)</span></strong> is a prime number because its only divisors are <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(3\)</span></strong> is a prime number because its only divisors are <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(3\)</span>.</p></li>
+<li><p><strong><span class="math notranslate nohighlight">\(4\)</span></strong> is not a prime number because it can be divided by <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, and <span class="math notranslate nohighlight">\(4\)</span>.</p></li>
 </ul>
 </section>
 <section id="properties-of-prime-numbers">
 <h3>Properties of Prime Numbers<a class="headerlink" href="#properties-of-prime-numbers" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>The number <span class="math notranslate nohighlight">\(2\)</span> is the only even prime number.</p></li>
-<li><p>Every prime number greater than <span class="math notranslate nohighlight">\(2\)</span> is odd.</p></li>
-<li><p>There are infinitely many prime numbers.</p></li>
+<li><p><strong>The number <span class="math notranslate nohighlight">\(2\)</span> is the only even prime number:</strong> All other even numbers can be divided by <span class="math notranslate nohighlight">\(2\)</span>, so they cannot be prime.</p></li>
+<li><p><strong>Every prime number greater than <span class="math notranslate nohighlight">\(2\)</span> is odd:</strong> This is because even numbers greater than <span class="math notranslate nohighlight">\(2\)</span> can always be divided by <span class="math notranslate nohighlight">\(2\)</span>.</p></li>
+<li><p><strong>There are infinitely many prime numbers:</strong> This was proven by the ancient Greek mathematician Euclid.</p></li>
 </ul>
+</section>
+</section>
+<section id="topics-covered">
+<h2>Topics Covered<a class="headerlink" href="#topics-covered" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong><a class="reference internal" href="prime-numbers.html"><span class="std std-doc">Finding Prime Numbers:</span></a></strong> Techniques and algorithms to identify prime numbers.</p></li>
+<li><p><strong><a class="reference internal" href="finding-coprimes.html"><span class="std std-doc">Coprime Numbers:</span></a></strong> Understanding and finding numbers that share no common divisors other than <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p><strong><a class="reference internal" href="prime-factorisation.html"><span class="std std-doc">Prime Factorisation:</span></a></strong> Breaking down numbers into their prime components.</p></li>
+<li><p><strong><a class="reference internal" href="gcd-lcm.html"><span class="std std-doc">Greatest Common Divisor (GCD) and Least Common Multiple (LCM):</span></a></strong> Methods to find the largest common divisor of two or more numbers and to find the smallest common multiple of two or more numbers.</p></li>
+</ol>
+</section>
+<section id="why-study-prime-numbers">
+<h2>Why Study Prime Numbers?<a class="headerlink" href="#why-study-prime-numbers" title="Link to this heading">#</a></h2>
+<p>Prime numbers play a crucial role in various fields of mathematics and computer science, particularly in number theory and cryptography. They are the building blocks of the integers, and understanding their properties can help solve a wide range of mathematical problems.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Interesting Fact</p>
+<p>Did you know? The largest known prime number (as of 2024) has over 24 million digits! It was discovered using distributed computing projects where volunteers donate their computer’s processing power to search for new prime numbers.</p>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="prim-introduction.html#id1"></a></li>
+<li class="toctree-l1"><a class="reference internal" href="prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="prime-introduction.html#id1"></a></li>
 </ul>
 </div>
-</section>
 </section>
 </section>
 
@@ -474,11 +528,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="prime-numbers.html"
+       href="../cheat-sheet.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Prime Numbers</strong></p>
+        <p class="prev-next-title">Symbol Cheat Sheet</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -499,10 +553,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-prime-numbers">Introduction to Prime Numbers</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">For example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">For Example:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-prime-numbers">Properties of Prime Numbers</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics-covered">Topics Covered</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-prime-numbers">Why Study Prime Numbers?</a></li>
 </ul>
   </nav></div>
 
