@@ -186,12 +186,13 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../number-theory/prime-num-intro.html">Prime Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../number-theory/prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
 
 </ul>
 </details></li>
@@ -262,18 +263,50 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-
+<span class="btn__text-container">Repository</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fmaths/modular-arithmetic/modular-exponentiation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
 
 
 
@@ -359,7 +392,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -375,6 +410,25 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-perform-modular-exponentiation">Steps to Perform Modular Exponentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentiation-by-squaring">Exponentiation by Squaring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-of-exponentiation-by-squaring">Steps of Exponentiation by Squaring:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-11-13-mod-18">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(11^{13}~mod~18\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-283-4-mod-12">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(283^{4}~mod~12\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-38273-7-mod-24">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(38273^{7}~mod~24\)</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,29 +438,224 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="modular-exponentiation">
+<h1><strong>Modular Exponentiation</strong><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h1>
+<p>Modular exponentiation involves raising a number to an exponent and then taking the remainder when the result is divided by the modulus. This operation is commonly used in fields such as cryptography.</p>
+<p>The formula for modular exponentiation of a number <span class="math notranslate nohighlight">\(a\)</span> raised to an exponent <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[a^b~\mod~m\]</div>
+<section id="steps-to-perform-modular-exponentiation">
+<h2>Steps to Perform Modular Exponentiation<a class="headerlink" href="#steps-to-perform-modular-exponentiation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Compute the Power <span class="math notranslate nohighlight">\(a^b\)</span>:</strong>
+Calculate the power of the base <span class="math notranslate nohighlight">\(a\)</span> raised to the exponent <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
+<li><p><strong>Apply the Modulus <span class="math notranslate nohighlight">\(m\)</span>:</strong>
+After computing <span class="math notranslate nohighlight">\(a^b\)</span>, take the remainder when the result is divided by the modulus <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ol>
+<p>However, computing <span class="math notranslate nohighlight">\(a^b\)</span> directly for large <span class="math notranslate nohighlight">\(b\)</span> can be computationally expensive and may result in very large intermediate results. Instead, we use an efficient method called <strong>Exponentiation by Squaring</strong> to perform modular exponentiation.</p>
+<section id="exponentiation-by-squaring">
+<h3>Exponentiation by Squaring<a class="headerlink" href="#exponentiation-by-squaring" title="Link to this heading">#</a></h3>
+<p>Exponentiation by Squaring is an efficient algorithm to compute <span class="math notranslate nohighlight">\(a^b \mod m\)</span>. It works by breaking down the exponentiation process into a series of squaring and multiplication steps, reducing the overall number of operations.</p>
+</section>
+<section id="steps-of-exponentiation-by-squaring">
+<h3>Steps of Exponentiation by Squaring:<a class="headerlink" href="#steps-of-exponentiation-by-squaring" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Initialisation:</strong>
+Set the result to 1 and the base to <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
+<li><p><strong>Iterate through the bits of the exponent <span class="math notranslate nohighlight">\(b\)</span>:</strong></p>
+<ul class="simple">
+<li><p>If the current bit is 1, multiply the result by the current base.</p></li>
+<li><p>Square the base for the next iteration.</p></li>
+</ul>
+</li>
+<li><p><strong>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> at each step:</strong>
+Take the remainder of both the result and the base with <span class="math notranslate nohighlight">\(m\)</span> to keep the numbers manageable.</p></li>
+</ol>
+</section>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<p>This time we will make two functions from the get go, one to initially show how to get the result, and one that can give you the steps for the Exponentiation by Squaring method.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
-<span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_exponentiation</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">exponent</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="modular-exponentiation">
-<h1><strong>Modular Exponentiation</strong><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h1>
-<p>Modular exponentiation involves raising a number to an exponent and then taking the remainder when the result is divided by the modulus.</p>
-<p>The formula for modular exponentiation of a number <span class="math notranslate nohighlight">\(a\)</span> raised to an exponent <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
-<div class="math notranslate nohighlight">
-\[
-a^b \mod m
-\]</div>
-<p>Steps:</p>
-<ol class="arabic simple">
-<li><p>Compute the power <span class="math notranslate nohighlight">\(a^b\)</span>.</p></li>
-<li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
-</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_exponentiation_steps</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">base</span> <span class="o">%</span> <span class="n">modulus</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="n">exponent</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">exponent</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span> <span class="o">*</span> <span class="n">base</span><span class="p">)</span> <span class="o">%</span> <span class="n">modulus</span>
+            <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result updated to </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> after multiplying by base </span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">base</span> <span class="o">*</span> <span class="n">base</span><span class="p">)</span> <span class="o">%</span> <span class="n">modulus</span>
+        <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Base squared and reduced modulo </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">exponent</span> <span class="o">=</span> <span class="n">exponent</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exponent shifted right: </span><span class="si">{</span><span class="n">exponent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Steps of computation:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">steps</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">exponent</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<section id="finding-the-modular-exponentiation-of-11-13-mod-18">
+<h3>Finding the modular exponentiation of <span class="math notranslate nohighlight">\(11^{13}~mod~18\)</span><a class="headerlink" href="#finding-the-modular-exponentiation-of-11-13-mod-18" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">exponent</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11^13 ≡ 11 (mod 18)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steps of computation:
+Result updated to 11 after multiplying by base 11
+Base squared and reduced modulo 30: 1
+Exponent shifted right: 6
+Base squared and reduced modulo 30: 1
+Exponent shifted right: 3
+Result updated to 11 after multiplying by base 1
+Base squared and reduced modulo 30: 1
+Exponent shifted right: 1
+Result updated to 11 after multiplying by base 1
+Base squared and reduced modulo 30: 1
+Exponent shifted right: 0
+1^0 ≡ 11 (mod 30)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-the-modular-exponentiation-of-283-4-mod-12">
+<h3>Finding the modular exponentiation of <span class="math notranslate nohighlight">\(283^{4}~mod~12\)</span><a class="headerlink" href="#finding-the-modular-exponentiation-of-283-4-mod-12" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">283</span>
+<span class="n">exponent</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>283^4 ≡ 1 (mod 12)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steps of computation:
+Base squared and reduced modulo 12: 1
+Exponent shifted right: 2
+Base squared and reduced modulo 12: 1
+Exponent shifted right: 1
+Result updated to 1 after multiplying by base 1
+Base squared and reduced modulo 12: 1
+Exponent shifted right: 0
+1^0 ≡ 1 (mod 12)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-the-modular-exponentiation-of-38273-7-mod-24">
+<h3>Finding the modular exponentiation of <span class="math notranslate nohighlight">\(38273^{7}~mod~24\)</span><a class="headerlink" href="#finding-the-modular-exponentiation-of-38273-7-mod-24" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">38273</span>
+<span class="n">exponent</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">24</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>38273^7 ≡ 17 (mod 24)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">modular_exponentiation_steps</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steps of computation:
+Result updated to 17 after multiplying by base 17
+Base squared and reduced modulo 24: 1
+Exponent shifted right: 3
+Result updated to 17 after multiplying by base 1
+Base squared and reduced modulo 24: 1
+Exponent shifted right: 1
+Result updated to 17 after multiplying by base 1
+Base squared and reduced modulo 24: 1
+Exponent shifted right: 0
+1^0 ≡ 17 (mod 24)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -463,6 +712,32 @@ a^b \mod m
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-perform-modular-exponentiation">Steps to Perform Modular Exponentiation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponentiation-by-squaring">Exponentiation by Squaring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-of-exponentiation-by-squaring">Steps of Exponentiation by Squaring:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-11-13-mod-18">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(11^{13}~mod~18\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-283-4-mod-12">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(283^{4}~mod~12\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-modular-exponentiation-of-38273-7-mod-24">Finding the modular exponentiation of <span class="math notranslate nohighlight">\(38273^{7}~mod~24\)</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

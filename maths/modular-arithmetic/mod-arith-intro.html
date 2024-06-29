@@ -65,7 +65,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Modular Addition" href="modular-addition.html" />
-    <link rel="prev" title="Prime Numbers Complete" href="../number-theory/prim-introduction.html" />
+    <link rel="prev" title="Prime Numbers Complete" href="../number-theory/prime-introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,12 +186,13 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../number-theory/prime-num-intro.html">Prime Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../number-theory/prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
 
 </ul>
 </details></li>
@@ -262,18 +263,50 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-
+<span class="btn__text-container">Repository</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fmaths/modular-arithmetic/mod-arith-intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
 
 
 
@@ -383,9 +416,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-modular-arithmetic">Introduction to Modular Arithmetic</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">For example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">For Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-modular-arithmetic">Properties of Modular Arithmetic</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics-covered">Topics Covered</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-modular-arithmetic">Why Study Modular Arithmetic?</a></li>
 </ul>
             </nav>
         </div>
@@ -399,16 +435,46 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modular-arithmetic">
 <h1>Modular Arithmetic<a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h1>
-<p>In this section, you will find detailed explanations and examples on various topics related to modular arithmetic, including modular addition, modular subtraction, modular multiplication, modular division, and modular exponentiation.</p>
+<p>Welcome to the Modular Arithmetic section! Here, you will find detailed explanations and examples on various topics related to modular arithmetic, including modular addition, modular subtraction, modular multiplication, modular inverse, and modular exponentiation.</p>
+<p>Access the handy maths symbol cheat sheet to help with covering these topics here: <a class="reference internal" href="../cheat-sheet.html"><span class="std std-doc">Cheat Sheet</span></a></p>
 <section id="introduction-to-modular-arithmetic">
 <h2>Introduction to Modular Arithmetic<a class="headerlink" href="#introduction-to-modular-arithmetic" title="Link to this heading">#</a></h2>
-<p>Modular arithmetic is a system of arithmetic for integers, where numbers “wrap around” upon reaching a certain value called the modulus. In modular arithmetic, two numbers are considered equivalent if they have the same remainder when divided by the modulus.</p>
+<p>Modular arithmetic, sometimes referred to as “clock arithmetic,” deals with integers and a specific number, the modulus, and involves performing operations and finding remainders when numbers are divided by the modulus.</p>
 <section id="for-example">
-<h3>For example:<a class="headerlink" href="#for-example" title="Link to this heading">#</a></h3>
+<h3>For Example:<a class="headerlink" href="#for-example" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>In modulo <span class="math notranslate nohighlight">\(5\)</span> arithmetic, <span class="math notranslate nohighlight">\(7\)</span> is equivalent to <span class="math notranslate nohighlight">\(2\)</span> because both have a remainder of <span class="math notranslate nohighlight">\(2\)</span> when divided by <span class="math notranslate nohighlight">\(5\)</span>.</p></li>
-<li><p>In modulo <span class="math notranslate nohighlight">\(12\)</span> arithmetic, <span class="math notranslate nohighlight">\(15\)</span> is equivalent to <span class="math notranslate nohighlight">\(3\)</span> because both have a remainder of <span class="math notranslate nohighlight">\(3\)</span> when divided by <span class="math notranslate nohighlight">\(12\)</span>.</p></li>
+<li><p>The expression <span class="math notranslate nohighlight">\(7 \mod 3\)</span> evaluates to <span class="math notranslate nohighlight">\(1\)</span> because when <span class="math notranslate nohighlight">\(7\)</span> is divided by <span class="math notranslate nohighlight">\(3\)</span>, the remainder is <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p>The expression <span class="math notranslate nohighlight">\(10 \mod 4\)</span> evaluates to <span class="math notranslate nohighlight">\(2\)</span> because when <span class="math notranslate nohighlight">\(10\)</span> is divided by <span class="math notranslate nohighlight">\(4\)</span>, the remainder is <span class="math notranslate nohighlight">\(2\)</span>.</p></li>
 </ul>
+</section>
+<section id="properties-of-modular-arithmetic">
+<h3>Properties of Modular Arithmetic<a class="headerlink" href="#properties-of-modular-arithmetic" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Modular addition:</strong> <span class="math notranslate nohighlight">\((a + b) \mod n = ((a \mod n) + (b \mod n)) \mod n\)</span></p></li>
+<li><p><strong>Modular subtraction:</strong> <span class="math notranslate nohighlight">\((a - b) \mod n = ((a \mod n) - (b \mod n)) \mod n\)</span></p></li>
+<li><p><strong>Modular multiplication:</strong> <span class="math notranslate nohighlight">\((a \times b) \mod n = ((a \mod n) \times (b \mod n)) \mod n\)</span></p></li>
+<li><p><strong>Modular exponentiation:</strong> <span class="math notranslate nohighlight">\((a^b) \mod n = ((a \mod n)^b) \mod n\)</span></p></li>
+<li><p><strong>Modular inverse:</strong> Defined as <span class="math notranslate nohighlight">\(a \times b^{-1} \mod n\)</span>, where <span class="math notranslate nohighlight">\(b^{-1}\)</span> is the modular multiplicative inverse of <span class="math notranslate nohighlight">\(b\)</span> under modulus <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="topics-covered">
+<h2>Topics Covered<a class="headerlink" href="#topics-covered" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong><a class="reference internal" href="modular-addition.html"><span class="std std-doc">Modular Addition:</span></a></strong> Examples of performing addition under a modulus.</p></li>
+<li><p><strong><a class="reference internal" href="modular-subtraction.html"><span class="std std-doc">Modular Subtraction:</span></a></strong> Examples of performing subtraction under a modulus.</p></li>
+<li><p><strong><a class="reference internal" href="modular-multiplication.html"><span class="std std-doc">Modular Multiplication:</span></a></strong> Examples of performing multiplication under a modulus.</p></li>
+<li><p><strong><a class="reference internal" href="modular-exponentiation.html"><span class="std std-doc">Modular Exponentiation:</span></a></strong> Examples of raising numbers to a power under a modulus.</p></li>
+<li><p><strong><a class="reference internal" href="modular-inverse.html"><span class="std std-doc">Modular Inverse:</span></a></strong> Examples of finding the modular multiplicative inverse of a number.</p></li>
+</ol>
+</section>
+<section id="why-study-modular-arithmetic">
+<h2>Why Study Modular Arithmetic?<a class="headerlink" href="#why-study-modular-arithmetic" title="Link to this heading">#</a></h2>
+<p>Modular arithmetic is fundamental in various fields, including computer science, cryptography, and number theory. It is essential for understanding algorithms, encryption methods, and solving problems involving cyclic structures. Its also a very interesting topic to study!</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Interesting Fact</p>
+<p>Did you know? Modular arithmetic has a rich history dating back to ancient China, where it was used in the Chinese Remainder Theorem. This theorem, first recorded by the mathematician Sunzi in the 3rd century AD, provides a way to solve systems of simultaneous congruences with different moduli. It laid the foundation for many modern applications in cryptography and computer science, illustrating the timeless relevance of modular arithmetic in solving complex problems.</p>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modular-addition.html"><strong>Modular Addition</strong></a></li>
@@ -424,7 +490,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="mod-introduction.html#modular-exponentiation"><strong>Modular Exponentiation</strong></a></li>
 </ul>
 </div>
-</section>
 </section>
 </section>
 
@@ -459,7 +524,7 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../number-theory/prim-introduction.html"
+       href="../number-theory/prime-introduction.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -493,9 +558,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-modular-arithmetic">Introduction to Modular Arithmetic</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">For example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-example">For Example:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-modular-arithmetic">Properties of Modular Arithmetic</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics-covered">Topics Covered</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-study-modular-arithmetic">Why Study Modular Arithmetic?</a></li>
 </ul>
   </nav></div>
 

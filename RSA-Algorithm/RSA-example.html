@@ -186,12 +186,13 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../maths/number-theory/prime-num-intro.html">Prime Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../maths/cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maths/number-theory/prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
 
 </ul>
 </details></li>
@@ -262,18 +263,50 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-
+<span class="btn__text-container">Repository</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2FRSA-Algorithm/RSA-example.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
 
 
 
@@ -407,58 +440,134 @@ document.write(`
 <h1><strong>The RSA Algorithm</strong><a class="headerlink" href="#the-rsa-algorithm" title="Link to this heading">#</a></h1>
 <p>The Ron Rivest, Adi Shamir, and Leonard Adleman (RSA) algorithm is a public-key cryptosystem that is widely used for secure data transmission. It is based on the principle that it is easy to multiply large prime numbers together, however it is extremely difficult to factor the product of two large prime numbers. The RSA algorithm is based on the mathematical properties of prime numbers and the Euler’s totient function.</p>
 <p>Let’s break down the mathematics behind the RSA algorithm:</p>
-<ol class="arabic">
-<li><p><strong>Key Generation</strong>:</p>
+<div class="proof algorithm admonition" id="alg-rsa-key-generation">
+<p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (RSA Key Generation)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Input:</strong></p>
 <ul class="simple">
-<li><p>Choose two distinct prime numbers <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
-<li><p>Compute <span class="math notranslate nohighlight">\(n\)</span> as the product of <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>:</p></li>
+<li><p>Two distinct prime numbers <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
+</ul>
+<p><strong>Objective:</strong> Generate the public and private keys for RSA encryption.</p>
+<p><strong>Procedure:</strong></p>
+<ol class="arabic">
+<li><p><strong>Choose Two Primes:</strong></p>
+<ul class="simple">
+<li><p>Select two distinct prime numbers <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Compute <span class="math notranslate nohighlight">\(n\)</span>:</strong></p>
+<ul class="simple">
+<li><p>Calculate the product of <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
     n = p \times q
     \]</div>
+</li>
+<li><p><strong>Compute the Totient Function <span class="math notranslate nohighlight">\(\phi(n)\)</span>:</strong></p>
 <ul class="simple">
-<li><p>Compute the totient function <span class="math notranslate nohighlight">\(\phi(n)\)</span>:</p></li>
+<li><p>Calculate the totient function:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
     \phi(n) = (p-1) \times (q-1)
     \]</div>
+</li>
+<li><p><strong>Choose <span class="math notranslate nohighlight">\(e\)</span>:</strong></p>
 <ul class="simple">
-<li><p>Choose an integer <span class="math notranslate nohighlight">\(e\)</span> such that <span class="math notranslate nohighlight">\(1 &lt; e &lt; \phi(n)\)</span> and <span class="math notranslate nohighlight">\(e\)</span> is coprime with <span class="math notranslate nohighlight">\(\phi(n)\)</span>. Typically, <span class="math notranslate nohighlight">\(e = 65537\)</span> is chosen.</p></li>
-<li><p>Compute the modular multiplicative inverse of <span class="math notranslate nohighlight">\(e\)</span> modulo <span class="math notranslate nohighlight">\(\phi(n)\)</span> to get <span class="math notranslate nohighlight">\(d\)</span>:</p></li>
+<li><p>Select an integer <span class="math notranslate nohighlight">\(e\)</span> such that <span class="math notranslate nohighlight">\(1 &lt; e &lt; \phi(n)\)</span> and <span class="math notranslate nohighlight">\(e\)</span> is coprime with <span class="math notranslate nohighlight">\(\phi(n)\)</span>. Typically, <span class="math notranslate nohighlight">\(e = 65537\)</span> is chosen.</p></li>
+</ul>
+</li>
+<li><p><strong>Compute <span class="math notranslate nohighlight">\(d\)</span>:</strong></p>
+<ul class="simple">
+<li><p>Calculate the modular multiplicative inverse of <span class="math notranslate nohighlight">\(e\)</span> modulo <span class="math notranslate nohighlight">\(\phi(n)\)</span> to get <span class="math notranslate nohighlight">\(d\)</span>:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
     d \equiv e^{-1} \mod \phi(n)
     \]</div>
-<ul class="simple">
-<li><p>The public key is <span class="math notranslate nohighlight">\((e, n)\)</span> and the private key is <span class="math notranslate nohighlight">\((d, n)\)</span>.</p></li>
-</ul>
 </li>
-<li><p><strong>Encryption</strong>:</p>
+</ol>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p>Public key <span class="math notranslate nohighlight">\((e, n)\)</span></p></li>
+<li><p>Private key <span class="math notranslate nohighlight">\((d, n)\)</span></p></li>
+</ul>
+</section>
+</div><div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>In RSA key generation, two distinct prime numbers <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> are chosen to compute the modulus <span class="math notranslate nohighlight">\(n\)</span>. The totient function <span class="math notranslate nohighlight">\(\phi(n)\)</span> is then calculated. An integer <span class="math notranslate nohighlight">\(e\)</span> is selected such that it is coprime with <span class="math notranslate nohighlight">\(\phi(n)\)</span>, and the modular multiplicative inverse of <span class="math notranslate nohighlight">\(e\)</span> is computed to obtain <span class="math notranslate nohighlight">\(d\)</span>. The public key is <span class="math notranslate nohighlight">\((e, n)\)</span>, and the private key is <span class="math notranslate nohighlight">\((d, n)\)</span>.</p>
+</div>
+<div class="proof algorithm admonition" id="alg-rsa-encryption">
+<p class="admonition-title"><span class="caption-number">Algorithm 8 </span> (RSA Encryption)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Input:</strong></p>
+<ul class="simple">
+<li><p>Plaintext message <span class="math notranslate nohighlight">\(M\)</span>.</p></li>
+<li><p>Public key <span class="math notranslate nohighlight">\((e, n)\)</span>.</p></li>
+</ul>
+<p><strong>Objective:</strong> Encrypt the plaintext message using the RSA algorithm.</p>
+<p><strong>Procedure:</strong></p>
+<ol class="arabic">
+<li><p><strong>Convert Plaintext to Integer:</strong></p>
 <ul class="simple">
 <li><p>Convert the plaintext message <span class="math notranslate nohighlight">\(M\)</span> into an integer <span class="math notranslate nohighlight">\(m\)</span> such that <span class="math notranslate nohighlight">\(0 \leq m &lt; n\)</span>.</p></li>
-<li><p>Compute the ciphertext <span class="math notranslate nohighlight">\(c\)</span> using the public key <span class="math notranslate nohighlight">\((e, n)\)</span>:</p></li>
+</ul>
+</li>
+<li><p><strong>Compute Ciphertext:</strong></p>
+<ul class="simple">
+<li><p>Calculate the ciphertext <span class="math notranslate nohighlight">\(c\)</span> using the public key <span class="math notranslate nohighlight">\((e, n)\)</span>:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
     c \equiv m^e \mod n
     \]</div>
 </li>
-<li><p><strong>Decryption</strong>:</p>
+</ol>
+<p><strong>Output:</strong></p>
 <ul class="simple">
-<li><p>Compute the plaintext integer <span class="math notranslate nohighlight">\(m\)</span> from the ciphertext <span class="math notranslate nohighlight">\(c\)</span> using the private key <span class="math notranslate nohighlight">\((d, n)\)</span>:</p></li>
+<li><p>Ciphertext <span class="math notranslate nohighlight">\(c\)</span></p></li>
+</ul>
+</section>
+</div><div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To encrypt a plaintext message using RSA, the message is first converted into an integer <span class="math notranslate nohighlight">\(m\)</span> within the range <span class="math notranslate nohighlight">\(0 \leq m &lt; n\)</span>. The ciphertext <span class="math notranslate nohighlight">\(c\)</span> is then computed using the public key <span class="math notranslate nohighlight">\((e, n)\)</span> by raising <span class="math notranslate nohighlight">\(m\)</span> to the power of <span class="math notranslate nohighlight">\(e\)</span> and taking the result modulo <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<div class="proof algorithm admonition" id="alg-rsa-decryption">
+<p class="admonition-title"><span class="caption-number">Algorithm 9 </span> (RSA Decryption)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Input:</strong></p>
+<ul class="simple">
+<li><p>Ciphertext <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p>Private key <span class="math notranslate nohighlight">\((d, n)\)</span>.</p></li>
+</ul>
+<p><strong>Objective:</strong> Decrypt the ciphertext using the RSA algorithm.</p>
+<p><strong>Procedure:</strong></p>
+<ol class="arabic">
+<li><p><strong>Compute Plaintext Integer:</strong></p>
+<ul class="simple">
+<li><p>Calculate the plaintext integer <span class="math notranslate nohighlight">\(m\)</span> from the ciphertext <span class="math notranslate nohighlight">\(c\)</span> using the private key <span class="math notranslate nohighlight">\((d, n)\)</span>:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
     m \equiv c^d \mod n
     \]</div>
+</li>
+<li><p><strong>Convert Integer to Plaintext:</strong></p>
 <ul class="simple">
 <li><p>Convert the integer <span class="math notranslate nohighlight">\(m\)</span> back to the original plaintext message <span class="math notranslate nohighlight">\(M\)</span>.</p></li>
 </ul>
 </li>
 </ol>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p>Plaintext message <span class="math notranslate nohighlight">\(M\)</span></p></li>
+</ul>
+</section>
+</div><div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To decrypt a ciphertext using RSA, the ciphertext <span class="math notranslate nohighlight">\(c\)</span> is raised to the power of <span class="math notranslate nohighlight">\(d\)</span> and taken modulo <span class="math notranslate nohighlight">\(n\)</span> using the private key <span class="math notranslate nohighlight">\((d, n)\)</span>. The resulting integer <span class="math notranslate nohighlight">\(m\)</span> is then converted back to the original plaintext message <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</div>
 <section id="rsa-algorithm-implementation">
 <h2>RSA Algorithm Implementation<a class="headerlink" href="#rsa-algorithm-implementation" title="Link to this heading">#</a></h2>
 <section id="function-generation">
@@ -470,7 +579,12 @@ document.write(`
 <li><p>If <span class="math notranslate nohighlight">\(n\)</span> is a product of three prime numbers, then <span class="math notranslate nohighlight">\(φ(n) = (p - 1)(q - 1)(r - 1)\)</span></p></li>
 <li><p>And so on…</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">sympy</span>
@@ -480,6 +594,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -567,15 +682,14 @@ Wall time: 112 μs
 </div>
 </div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">Euler’s Totient Function</p>
 <p>Euler’s totient function, <span class="math notranslate nohighlight">\(\phi(n)\)</span>, is crucial for generating the RSA keys. It is calculated using the formula:</p>
 <div class="math notranslate nohighlight">
 \[
 \phi(n) = (p - 1) \times (q - 1)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> are prime numbers.</p>
-<h4 class="rubric" id="example">Example:</h4>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Example</p>
 <p>Given:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -614,14 +728,13 @@ Wall time: 85.4 μs
 </div>
 </div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">Private Key Calculation</p>
 <p>The private key <span class="math notranslate nohighlight">\(d\)</span> is the modular multiplicative inverse of <span class="math notranslate nohighlight">\(e\)</span> modulo <span class="math notranslate nohighlight">\(\phi(n)\)</span>. This means we need to find <span class="math notranslate nohighlight">\(d\)</span> such that:</p>
 <div class="math notranslate nohighlight">
 \[
 d \equiv e^{-1} \mod \phi(n)
 \]</div>
-<p>Given:</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Example</p>
 <div class="math notranslate nohighlight">
 \[
 e = 17
@@ -661,13 +774,13 @@ Wall time: 117 μs
 </div>
 </div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">Encryption</p>
 <p>To encrypt a message <span class="math notranslate nohighlight">\(M\)</span>, convert it to an integer <span class="math notranslate nohighlight">\(m\)</span> such that <span class="math notranslate nohighlight">\(0 \leq m &lt; n\)</span>. Then, use the public key <span class="math notranslate nohighlight">\((e, n)\)</span> to compute the ciphertext <span class="math notranslate nohighlight">\(c\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 c \equiv m^e \mod n
 \]</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Example</p>
 <p>Suppose the plaintext message <span class="math notranslate nohighlight">\(M\)</span> is represented as the integer <span class="math notranslate nohighlight">\(m = 1234\)</span>.</p>
 <p>Given the public key:</p>
 <div class="math notranslate nohighlight">
@@ -704,13 +817,13 @@ Wall time: 116 μs
 </div>
 </div>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">Decryption</p>
 <p>To decrypt the ciphertext <span class="math notranslate nohighlight">\(c\)</span>, use the private key <span class="math notranslate nohighlight">\((d, n)\)</span> to compute the plaintext integer <span class="math notranslate nohighlight">\(m\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 m \equiv c^d \mod n
 \]</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Example</p>
 <p>Given the private key:</p>
 <div class="math notranslate nohighlight">
 \[

@@ -186,12 +186,13 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="prime-num-intro.html">Prime Numbers</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
 
 </ul>
 </details></li>
@@ -262,18 +263,50 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-
+<span class="btn__text-container">Repository</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fmaths/number-theory/fermats-little-theorem.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
 
 
 
@@ -422,7 +455,12 @@ a^{p-1} \equiv 1 \mod p
 <li><p><span class="math notranslate nohighlight">\(3^{6} \mod 7 = 1\)</span></p></li>
 </ol>
 <p>Therefore, <span class="math notranslate nohighlight">\(3^{6} \equiv 1 \mod 7\)</span>.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -431,6 +469,7 @@ a^{p-1} \equiv 1 \mod p
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section id="implementation">
 <h2>Implementation:<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h2>
@@ -484,14 +523,16 @@ Wall time: 69.1 μs
 <div class="tip admonition">
 <p class="admonition-title">Explanation</p>
 <h4 class="rubric" id="testing-if-91-is-prime-with-base-3">Testing if 91 is Prime with Base 3</h4>
-<p>Using Fermat’s Little Theorem:
-$<span class="math notranslate nohighlight">\(
+<p>Using Fermat’s Little Theorem:</p>
+<div class="math notranslate nohighlight">
+\[
 3^{90} \mod 91
-\)</span>$</p>
-<p>Calculate <span class="math notranslate nohighlight">\(3^{90} \mod 91\)</span>:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Calculate <span class="math notranslate nohighlight">\(3^{90} \mod 91\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
 3^{90} \equiv 1 \mod 91
-\)</span>$</p>
+\]</div>
 <p>Since the congruence holds true, 91 is probably prime.</p>
 <p><strong>Result</strong>:</p>
 <ul class="simple">
@@ -527,17 +568,19 @@ Wall time: 68.2 μs
 </div>
 </div>
 </div>
-<div class="tip admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">Explanation</p>
 <h4 class="rubric" id="testing-if-88-is-prime-with-base-6">Testing if 88 is Prime with Base 6</h4>
-<p>Using Fermat’s Little Theorem:
-$<span class="math notranslate nohighlight">\(
+<p>Using Fermat’s Little Theorem:</p>
+<div class="math notranslate nohighlight">
+\[
 6^{87} \mod 88
-\)</span>$</p>
-<p>Calculate <span class="math notranslate nohighlight">\(6^{87} \mod 88\)</span>:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Calculate <span class="math notranslate nohighlight">\(6^{87} \mod 88\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
 6^{87} \not\equiv 1 \mod 88
-\)</span>$</p>
+\]</div>
 <p>Since the congruence does not hold true, 88 is composite.</p>
 <p><strong>Result</strong>:</p>
 <ul class="simple">
@@ -573,17 +616,19 @@ Wall time: 68.9 μs
 </div>
 </div>
 </div>
-<div class="tip admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">Explanation</p>
 <h4 class="rubric" id="testing-if-104729-is-prime-with-base-2">Testing if 104729 is Prime with Base 2</h4>
-<p>Using Fermat’s Little Theorem:
-$<span class="math notranslate nohighlight">\(
+<p>Using Fermat’s Little Theorem:</p>
+<div class="math notranslate nohighlight">
+\[
 2^{104728} \mod 104729
-\)</span>$</p>
-<p>Calculate <span class="math notranslate nohighlight">\(2^{104728} \mod 104729\)</span>:
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>Calculate <span class="math notranslate nohighlight">\(2^{104728} \mod 104729\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
 2^{104728} \equiv 1 \mod 104729
-\)</span>$</p>
+\]</div>
 <p>Since the congruence holds true, 104729 is probably prime.</p>
 <p><strong>Result</strong>:</p>
 <ul class="simple">

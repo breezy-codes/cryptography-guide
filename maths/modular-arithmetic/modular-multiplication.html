@@ -186,12 +186,13 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Number Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../number-theory/prime-num-intro.html">Prime Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cheat-sheet.html">Symbol Cheat Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-numbers.html"><strong>Prime Numbers</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/fermats-little-theorem.html"><strong>Fermat’s Little Theorem</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/finding-coprimes.html"><strong>Finding Coprimes</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-factorisation.html"><strong>Prime Factorisation</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../number-theory/gcd-lcm.html"><strong>GCD and LCM</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../number-theory/prim-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../number-theory/prime-introduction.html"><strong>Prime Numbers Complete</strong></a></li>
 
 </ul>
 </details></li>
@@ -262,18 +263,50 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
-   class="btn btn-sm btn-source-repository-button"
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
-   data-bs-placement="bottom" data-bs-toggle="tooltip"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-
+<span class="btn__text-container">Repository</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/breezy-codes/cryptography-guide/issues/new?title=Issue%20on%20page%20%2Fmaths/modular-arithmetic/modular-multiplication.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
 
 
 
@@ -359,7 +392,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -375,6 +410,20 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-23-times-7-mod-26">Find <span class="math notranslate nohighlight">\((23 \times 7)~mod~26\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-182-times-39-mod-8">Finding <span class="math notranslate nohighlight">\((182 \times 39)~mod~8\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-123-times-291-mod-39">Finding <span class="math notranslate nohighlight">\((123 \times 291)~mod~39\)</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,17 +433,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
-<span class="kn">import</span> <span class="nn">random</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="modular-multiplication">
+  <section class="tex2jax_ignore mathjax_ignore" id="modular-multiplication">
 <h1><strong>Modular Multiplication</strong><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h1>
 <p>Modular multiplication involves multiplying two numbers and then taking the remainder when the result is divided by the modulus.</p>
 <p>The formula for modular multiplication of two numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with modulus <span class="math notranslate nohighlight">\(m\)</span> is:</p>
@@ -407,6 +446,204 @@ document.write(`
 <li><p>Multiply the numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
 <li><p>Apply the modulus <span class="math notranslate nohighlight">\(m\)</span> to find the remainder.</p></li>
 </ol>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">gcd</span>
+<span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">modular_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">modulus</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> ≡ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> (mod </span><span class="si">{</span><span class="n">modulus</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<section id="find-23-times-7-mod-26">
+<h3>Find <span class="math notranslate nohighlight">\((23 \times 7)~mod~26\)</span><a class="headerlink" href="#find-23-times-7-mod-26" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">26</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23 * 7 ≡ 5 (mod 26)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 23 \times 7 ) modulo ( 26 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the multiplication</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+23 \times 7 = 161
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Find the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<p>Now, calculate the remainder when ( 161 ) is divided by ( 26 ):</p>
+<div class="math notranslate nohighlight">
+\[
+161 \div 26 = 6 \text{ remainder } 5
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+161 = 26 \times 6 + 5
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+161 \mod 26 = 5
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+23 \times 7 \equiv 5 \mod 26
+\]</div>
+</div>
+</section>
+<section id="finding-182-times-39-mod-8">
+<h3>Finding <span class="math notranslate nohighlight">\((182 \times 39)~mod~8\)</span><a class="headerlink" href="#finding-182-times-39-mod-8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">182</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">39</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 182 \times 39 ) modulo ( 8 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the multiplication</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+182 \times 39 = 7104
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Find the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<p>Now, calculate the remainder when ( 7104 ) is divided by ( 8 ):</p>
+<div class="math notranslate nohighlight">
+\[
+7104 \div 8 = 888 \text{ remainder } 0
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+7104 = 8 \times 888 + 0
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+7104 \mod 8 = 0
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+182 \times 39 \equiv 0 \mod 8
+\]</div>
+</div>
+</section>
+<section id="finding-123-times-291-mod-39">
+<h3>Finding <span class="math notranslate nohighlight">\((123 \times 291)~mod~39\)</span><a class="headerlink" href="#finding-123-times-291-mod-39" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">291</span>
+<span class="n">modulus</span> <span class="o">=</span> <span class="mi">39</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">modular_multiplication</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123 * 291 ≡ 30 (mod 39)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Explanation</p>
+<p>To find the result of ( 123 \times 291 ) modulo ( 39 ), follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Perform the multiplication</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+123 \times 291 = 35853
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Find the remainder when divided by the modulus</strong>:</p></li>
+</ol>
+<p>Now, calculate the remainder when ( 35853 ) is divided by ( 39 ):</p>
+<div class="math notranslate nohighlight">
+\[
+35853 \div 39 = 919 \text{ remainder } 32
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Express the division</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+35853 = 39 \times 919 + 32
+\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>The remainder is the result of the modulo operation</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+35853 \mod 39 = 32
+\]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+123 \times 291 \equiv 32 \mod 39
+\]</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -463,6 +700,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-23-times-7-mod-26">Find <span class="math notranslate nohighlight">\((23 \times 7)~mod~26\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-182-times-39-mod-8">Finding <span class="math notranslate nohighlight">\((182 \times 39)~mod~8\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-123-times-291-mod-39">Finding <span class="math notranslate nohighlight">\((123 \times 291)~mod~39\)</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
