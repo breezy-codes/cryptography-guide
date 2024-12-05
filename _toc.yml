@@ -16,6 +16,7 @@ parts:
           - file: maths/number-theory/prime-factorisation
           - file: maths/number-theory/gcd-lcm
           - file: maths/number-theory/prime-introduction
+          - file: maths/number-theory/converting-values
       - file: maths/modular-arithmetic/mod-arith-intro
         sections:
           - file: maths/modular-arithmetic/modular-arithmetic
@@ -30,8 +31,15 @@ parts:
     chapters:
       - file: ciphers/ceaser-cipher
       - file: ciphers/hill-cipher
+      - file: ciphers/morse-code
+      - file: ciphers/base64
   - caption: RSA Algorithm
     numbered: false
     chapters:
       - file: RSA-Algorithm/RSA-example
       - file: RSA-Algorithm/RSA-with-large-num
+  - caption: Steganography
+    numbered: false
+    chapters:
+      - file: steganography/bitmap-steganography
+      - file: steganography/bitmap-caesar
