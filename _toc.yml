@@ -22,7 +22,6 @@ parts:
           - file: maths/number-theory/converting-values
       - file: maths/modular-arithmetic/mod-arith-intro
         sections:
-          - file: maths/modular-arithmetic/modular-arithmetic
           - file: maths/modular-arithmetic/modular-addition
           - file: maths/modular-arithmetic/modular-subtraction
           - file: maths/modular-arithmetic/modular-multiplication
