@@ -4,12 +4,15 @@
 format: jb-book
 root: README
 parts:
+  - caption: ""
+    numbered: false
+    chapters:
+      - file: maths/cheat-sheet.md
   - caption: Number Theory
     numbered: false
     chapters:
       - file: maths/number-theory/prime-num-intro
         sections:
-          - file: maths/cheat-sheet.md
           - file: maths/number-theory/prime-numbers
           - file: maths/number-theory/fermats-little-theorem
           - file: maths/number-theory/finding-coprimes
@@ -31,6 +34,7 @@ parts:
     chapters:
       - file: ciphers/ceaser-cipher
       - file: ciphers/hill-cipher
+      - file: ciphers/vignere-cipher
       - file: ciphers/morse-code
       - file: ciphers/base64
   - caption: RSA Algorithm

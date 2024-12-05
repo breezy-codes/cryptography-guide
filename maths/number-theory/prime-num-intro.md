@@ -1,4 +1,4 @@
-# Prime Numbers
+# **Prime Numbers**
 
 Welcome to the Prime Numbers section! Here, you will find detailed explanations and examples on various topics related to prime numbers, including their properties, how to find coprime numbers, prime factorisation, the greatest common divisor (GCD), and the least common multiple (LCM).
 

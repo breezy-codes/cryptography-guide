@@ -1,4 +1,4 @@
-# Modular Arithmetic
+# **Modular Arithmetic**
 
 Welcome to the Modular Arithmetic section! Here, you will find detailed explanations and examples on various topics related to modular arithmetic, including modular addition, modular subtraction, modular multiplication, modular inverse, and modular exponentiation.
 
@@ -8,7 +8,7 @@ Access the handy maths symbol cheat sheet to help with covering these topics her
 
 Modular arithmetic, sometimes referred to as "clock arithmetic," deals with integers and a specific number, the modulus, and involves performing operations and finding remainders when numbers are divided by the modulus.
 
-### For Example:
+### For Example
 
 - The expression $7 \mod 3$ evaluates to $1$ because when $7$ is divided by $3$, the remainder is $1$.
 - The expression $10 \mod 4$ evaluates to $2$ because when $10$ is divided by $4$, the remainder is $2$.
@@ -42,4 +42,3 @@ Did you know? Modular arithmetic has a rich history dating back to ancient China
 
 ```{tableofcontents}
 ```
-
