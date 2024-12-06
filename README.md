@@ -24,7 +24,7 @@
 </div>
 
 <div align="center">
-  <br><br>
+  <br>
   <img src="https://github.com/breezy-codes/cryptography-guide/actions/workflows/deploy.yml/badge.svg" alt="Deployment Status">
   <br><br>
 </div>
