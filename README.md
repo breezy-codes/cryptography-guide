@@ -23,7 +23,14 @@
   </a>
 </div>
 
-![Deployment Status](https://github.com/breezy-codes/cryptography-guide/actions/workflows/deploy.yml/badge.svg)
+---
+
+<div align="center">
+  <img src="https://github.com/breezy-codes/cryptography-guide/actions/workflows/deploy.yml/badge.svg" alt="Deployment Status">
+</div>
+
+---
+
 
 This repository is a collection of my cryptography projects, combining theoretical foundations with practical Python implementations. It’s an ongoing learning journey where I explore various cryptographic algorithms and concepts.  
 
