@@ -5,11 +5,17 @@
     --dark-purple: #361F77;
 }
 
-
 /* Link styling: neon green accents */
 a {
     color: var(--medium-purple);
     opacity: 1;
+}
+
+/* Center align all images */
+img {
+    display: block; /* Makes the image behave like a block element */
+    margin-left: auto; /* Automatically adjusts left margin */
+    margin-right: auto; /* Automatically adjusts right margin */
 }
 
 /* Headings: Use bronze color for better visibility */
@@ -48,9 +54,7 @@ a:hover {
     border-color: var(--medium-purple); /* Bronze dividers */
 }
 
-/* Code block styling: dark background with orange highlights */
 code {
-    background-color: #333333; /* Dark gray */
     color: var(--medium-purple); /* Muted orange */
 }
 
@@ -205,7 +209,6 @@ html[data-theme="light"] {
   }
 
 
-
 html[data-theme="dark"] {
     /* Primary color: Keep this as it is unless you want to change it */
     --pst-color-primary: #528fe4;
@@ -230,6 +233,10 @@ html[data-theme="dark"] h6 {
     margin: 0.5em 0; /* Add consistent margins */
 }
 
+html[data-theme="dark"] img:not(.only-dark, .dark-light) {
+    filter: brightness(.9) contrast(1.2);
+  }
+
 /* Sidebar links styling - dark theme */
 html[data-theme="dark"] .bd-sidebar-primary a {
     color: var(--light-purple) !important; /* Light purple for sidebar links */
@@ -239,6 +246,19 @@ html[data-theme="dark"] .bd-sidebar-primary a {
 html[data-theme="dark"] .bd-sidebar-primary a:hover {
     color: var(--medium-purple) !important; /* Medium purple on hover */
 }
+
+/* Code block styling: dark background with orange highlights */
+html[data-theme="dark"] code {
+    background-color: #333333; /* Dark gray */
+    color: #ff79c6; /* Muted orange */
+}
+
+html[data-theme="dark"] code.literal {
+    background-color: var(--pst-color-surface);
+    border: 0.7px solid var(--lighter-purple);
+    border-radius: .25rem;
+    padding: .1rem .25rem;
+  }
 
 /* Sidebar headers and dividers: Bronze for accent */
 html[data-theme="dark"] a.current.reference.internal {
