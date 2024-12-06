@@ -2,4 +2,4 @@
 * text=auto
 
 # ignore CSS
-*.css text eol=lf
+*.css linguist-language=ignore
