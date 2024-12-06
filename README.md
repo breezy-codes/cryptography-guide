@@ -1,64 +1,94 @@
-# Welcome to the World of Cryptography!
+# Welcome to the World of Cryptography! 🔐
 
-Welcome to my Cryptography Projects project! This is where I will be sharing all the cool stuff I've been working on in the world of cryptography. It's an ongoing project that I will keep updating as I learn more and find the time to dive deeper. There’s no strict timeline here—it's built around my learning journey and time availability as a full-time student.
+<div align="center">
+  <a href="https://www.linkedin.com/in/brianna-laird/" target="_blank">
+    <span style="margin: 0 15px;">
+      <img src="https://github.com/breezy-codes/breezy-codes/blob/main/Figures/linkedin.png" style="height: 35px;" alt="linkedin logo" />
+    </span>
+  </a>
+  <a href="https://www.youtube.com/@Breezy-Codes/" target="_blank">
+    <span style="margin: 0 15px;">
+      <img src="https://github.com/breezy-codes/breezy-codes/blob/main/Figures/youtube.png" style="height: 35px;" alt="youtube logo" />
+    </span>
+  </a>
+  <a href="https://briannalaird.com/" target="_blank">
+    <span style="margin: 0 15px;">
+      <img src="https://github.com/breezy-codes/breezy-codes/blob/main/Figures/portfolio.png" style="height: 35px;" alt="portfolio logo" />
+    </span>
+  </a>
+  <a href="https://orcid.org/0009-0005-9841-3691" target="_blank">
+    <span style="margin: 0 15px;">
+      <img src="https://github.com/breezy-codes/breezy-codes/blob/main/Figures/orc-id.png" style="height: 35px;" alt="ORC-ID" />
+    </span>
+  </a>
+</div>
 
-My passion for cryptography started in my first semester of university in Discrete Mathematics, where I wrote a HD report on the RSA algorith, DHKE algorithm and ECC. This continued into my second semester in my Cryptography subject, where I wrote a HD report on Quantum Cryptography and the Shor's algorithm. Both of these reports were featured in the **[Deakin Maths Yearbook 2023](https://nla.gov.au/nla.obj-3336557334/view)**. I have since been exploring different cryptographic algorithms and concepts, and I'm excited to share my findings with you.
+![Deployment Status](https://github.com/breezy-codes/cryptography-guide/actions/workflows/deploy.yml/badge.svg)
 
-Access the handy maths symbol cheat sheet to help with covering these topics here: [Cheat Sheet](./maths/cheat-sheet.md)
+This repository is a collection of my cryptography projects, combining theoretical foundations with practical Python implementations. It’s an ongoing learning journey where I explore various cryptographic algorithms and concepts.  
+
+---
 
 ## About This Project
 
-This project is a collection of my work in cryptography, presented in the form of Jupyter notebooks. Each notebook explores different aspects of cryptography, from theoretical mathematical foundations to practical implementations in Python. You’ll find detailed explanations of the mathematics behind cryptographic algorithms, along with code snippets to illustrate how these concepts are applied.
+Here, you'll find:
 
-## What you will find here
+- **Number theory basics** that power cryptographic algorithms.
+- **Ciphers**: Caesar Cipher, Vigenère Cipher, Hill Cipher, and more.
+- **Symmetric Cryptography**: DES, AES, and others.
+- **Asymmetric Cryptography**: RSA, ElGamal, ECC, and more.
+- **Hash Functions**: MD5, SHA-1, SHA-256, etc.
+- **Quantum Cryptography**: Shor's algorithm and its applications.
+- **Digital Signatures** and **Public Key Infrastructure (PKI)**.
+- **Steganography**: Hiding messages in images, audio, and more.
 
-Here are some of the topics I have covered or intend to cover in this  project:
+Explore detailed explanations and Python examples for each topic.
 
-- The concepts of number theory that underpin many cryptographic algorithms
-- Different Ciphers such as Caesar Cipher, Vigenère Cipher, and Hill Cipher
-- Symmetric Key Cryptographic Algorithms such as DES, AES, and others
-- Asymmetric Key Cryptographic Algorithms such as RSA, ElGamal, ECC and others
-- Hash functions such as MD5, SHA-1, and SHA-256
-- Quantum Cryptography and its applications
-- Digital Signatures and Public Key Infrastructure (PKI)
+---
 
-## How to Use This Project
+## How to Use
 
-Each page on the website is it's own notebook file, you can explore each on the website or download and run the notebooks on your local machine. Feel free to explore the topics that interest you the most, and don't hesitate to reach out if you have any questions or feedback.
+1. Clone the repository:
 
-### To Download the github repository:
+   ```bash
+   git clone https://github.com/breezy-codes/cryptography-guide.git
+   ```
 
-1. Clone the repository to your local machine using the following command:
+2. Navigate to the project directory:
 
-```bash
-git clone https://github.com/breezy-codes/cryptography-guide.git
-```
+   ```bash
+   cd cryptography-guide
+   ```
 
-2. Navigate to the directory with the following command:
+3. Set up a virtual environment and install dependencies:
 
-```bash
-cd cryptography-guide
-```
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
 
-3. Create a venv and install the required packages using the following command:
-
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+---
 
 ## Contributions
 
-I welcome contributions to this project! If you have any suggestions, corrections, or new topics you would like to see covered, feel free to open an issue or submit a pull request. I am always looking to improve the content and make it more accessible to a wider audience.
+Suggestions and pull requests are welcome! If there's a topic you'd like to see covered, feel free to share.
+
+---
 
 ## Helpful Resources
 
-- [A Security Site](https://asecuritysite.com/) - A great resource for learning about many different cryptographic algorithms and security.
-- [Learn Cryptography](https://www.khanacademy.org/computing/computer-science/cryptography) - A great resource for learning about cryptography on Khan Academy.
-- [Cryptography and its types](https://www.geeksforgeeks.org/cryptography-and-its-types/) - A great resource for learning about cryptography and its types on GeeksforGeeks.
-- [The Code Book](https://www.amazon.com.au/gp/product/0385495323/) - A book on the history of cryptography dating back to Ancient Egypt by Simon Singh.
+- [A Security Site](https://asecuritysite.com/)  
+- [Learn Cryptography](https://www.khanacademy.org/computing/computer-science/cryptography)  
+- [GeeksforGeeks: Cryptography](https://www.geeksforgeeks.org/cryptography-and-its-types/)  
+- [The Code Book by Simon Singh](https://www.amazon.com.au/gp/product/0385495323/)  
 
-## Contact:
+---
 
-If you have any questions or feedback, feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/brianna-laird/).
+## Contact
+
+Have questions or feedback? Connect with me on [LinkedIn](https://www.linkedin.com/in/brianna-laird/).  
+
+---
+
+Enjoy exploring the fascinating world of cryptography! 🚀
