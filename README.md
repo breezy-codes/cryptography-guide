@@ -53,6 +53,7 @@ pip install -r requirements.txt
 I welcome contributions to this project! If you have any suggestions, corrections, or new topics you would like to see covered, feel free to open an issue or submit a pull request. I am always looking to improve the content and make it more accessible to a wider audience.
 
 ## Helpful Resources
+
 - [A Security Site](https://asecuritysite.com/) - A great resource for learning about many different cryptographic algorithms and security.
 - [Learn Cryptography](https://www.khanacademy.org/computing/computer-science/cryptography) - A great resource for learning about cryptography on Khan Academy.
 - [Cryptography and its types](https://www.geeksforgeeks.org/cryptography-and-its-types/) - A great resource for learning about cryptography and its types on GeeksforGeeks.
