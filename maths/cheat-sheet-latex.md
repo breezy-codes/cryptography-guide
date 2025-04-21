@@ -1,4 +1,4 @@
-# Maths Cheat Sheet with Latex names
+# Maths Cheat Sheet with Latex
 
 This is my holy grail document I store in Obsidian that I have for quick reference, either for trying to remember a symbol or if I'm needing the latex name for it. I have a lot of these symbols in my notes, so this is a great way to keep them all in one place. Feel free to download the markdown file yourself and add into your own Obsidian or notion vault.
 

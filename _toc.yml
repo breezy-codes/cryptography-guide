@@ -8,6 +8,7 @@ parts:
     numbered: false
     chapters:
       - file: maths/cheat-sheet.md
+      - file: maths/cheat-sheet-latex.md
   - caption: Number Theory
     numbered: false
     chapters:
